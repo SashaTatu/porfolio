@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libri-interiors</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+            </div>
+            <nav class="navbar">
+                <div class="nav-container">
+                    <a href="#" class="nav-logo">LIBRI INTERIORS</a>
+
+                    <ul class="nav-links">
+                    <li><a href="#" class="nav-item active">Головна</a></li>
+                    <li><a href="#" class="nav-item">Про нас</a></li>
+                    <li><a href="#" class="nav-item">Послуги</a></li>
+                    <li><a href="#" class="nav-item">Портфоліо</a></li>
+                    <li><a href="#" class="nav-item">Контакти</a></li>
+                    </ul>
+
+                    <div class="lang-switcher">
+                    <button class="lang-btn" onclick="toggleLangMenu()">
+                        <span class="current-lang">УКР</span>
+                        <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <ul class="lang-dropdown" id="langDropdown">
+                        <li><a href="#" onclick="changeLanguage('DE', 'нім')">DE</a></li>
+                        <li><a href="#" class="active" onclick="changeLanguage('UA', 'укр')">UA</a></li>
+                        <li><a href="#" onclick="changeLanguage('EN', 'англ')">EN</a></li>
+                        <li><a href="#" onclick="changeLanguage('RU', 'рос')">RU</a></li>
+                    </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    
+</body>
+<script src="script/index.js"></script>
+</html>

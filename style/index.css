@@ -1,0 +1,152 @@
+/* Обнулення базових стилів */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif; /* Або будь-який інший преміальний шрифт */
+}
+
+/* Навігаційна панель — Фон у 4-му кольорі (#E5E2DC) */
+.navbar {
+  background-color: #edeced;
+  border-bottom: 1px solid #dfdcdf; /* 3-й колір для тонкої лінії */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 20px 0;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+/* Логотип — Темно-оливковий (#666956) */
+.nav-logo {
+  color: #666956;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+/* Список посилань */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #8E857B; /* 2-й колір для дефолтного стану */
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+/* Ефект при наведенні та активний стан — Темно-оливковий */
+.nav-item:hover, 
+.nav-item.active {
+  color: #666956;
+}
+
+/* Елегантне підкреслення при наведенні */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -4px;
+  left: 0;
+  background-color: #666956;
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover::after,
+.nav-item.active::after {
+  width: 100%;
+}
+
+/* Перемикач мови */
+.lang-switcher {
+  position: relative;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: #666956;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.lang-btn:hover {
+  background-color: #F9F6F4; /* 5-й колір для легкого ховеру */
+}
+
+.arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+/* Поворот стрілочки при відкритті */
+.lang-switcher.open .arrow-icon {
+  transform: rotate(180deg);
+}
+
+/* Випадаюче меню мов — М'який білий фон (#F9F6F4) */
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background-color: #F9F6F4;
+  border: 1px solid #C9C2BD;
+  border-radius: 6px;
+  list-style: none;
+  min-width: 80px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+/* Клас для показу меню */
+.lang-switcher.open .lang-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.lang-dropdown li a {
+  display: block;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #8E857B;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.lang-dropdown li a:hover,
+.lang-dropdown li a.active {
+  background-color: #E5E2DC; /* 4-й колір при ховері в меню */
+  color: #666956;
+}

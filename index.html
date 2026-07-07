@@ -1,47 +1,250 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style/index.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Libri-interiors</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIBRI INTERIORS — Студія дизайну інтер'єру</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2 family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/index.css">
+  <link rel="icon" type="image/png" href="img/favicon/kolibri.jpg">
 </head>
 <body>
-    <header>
-        <div class="header">
-            <div class="logo">
-                <img src="images/logo.png" alt="Logo">
+
+  <!-- ТОНКА СІТКА НА ТЛІ -->
+  <div class="bg-grid-lines">
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+  </div>
+
+  <!-- Навігація -->
+    <nav class="navbar">
+    <div class="container nav-container">
+        <img src="img/favicon/kolibri.jpg" alt="Kolibri Logo" class="nav-logo-img-kolibri">
+        <a href="index.html" class="nav-logo">LIBRI<br>INTERIORS</a>
+        <ul class="nav-links">
+        <li><a href="#" class="nav-item active">Головна</a></li>
+        <li><a href="about.html" class="nav-item">Про нас</a></li>
+        <li><a href="portfolio.html" class="nav-item">Портфоліо</a></li>
+        <li><a href="services.html" class="nav-item">Послуги</a></li>
+        </ul>
+        
+        <div class="nav-actions">
+        <a href="order.html" class="btn-nav-order"><span>Замовити дизайнера</span></a>
+        
+        <div class="lang-selector">
+            <button class="lang-btn" id="langBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20M12 2a14.5 14.5 0 0 1 0 20M2 12h20"/>
+            </svg>
+            <span>UA</span>
+            </button>
+            
+            <div class="lang-dropdown" id="langDropdown">
+            <a href="#" class="lang-dropdown-item active">Українська</a>
+            <a href="#" class="lang-dropdown-item standard-disabled">Deutsch <span class="soon-tag">незабаром</span></a>
+            <a href="#" class="lang-dropdown-item standard-disabled">English <span class="soon-tag">незабаром</span></a>
+            <a href="#" class="lang-dropdown-item standard-disabled">Русский <span class="soon-tag">незабаром</span></a>
             </div>
-            <nav class="navbar">
-                <div class="nav-container">
-                    <a href="#" class="nav-logo">LIBRI INTERIORS</a>
-
-                    <ul class="nav-links">
-                    <li><a href="#" class="nav-item active">Головна</a></li>
-                    <li><a href="#" class="nav-item">Про нас</a></li>
-                    <li><a href="#" class="nav-item">Послуги</a></li>
-                    <li><a href="#" class="nav-item">Портфоліо</a></li>
-                    <li><a href="#" class="nav-item">Контакти</a></li>
-                    </ul>
-
-                    <div class="lang-switcher">
-                    <button class="lang-btn" onclick="toggleLangMenu()">
-                        <span class="current-lang">УКР</span>
-                        <svg class="arrow-icon" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                    <ul class="lang-dropdown" id="langDropdown">
-                        <li><a href="#" onclick="changeLanguage('DE', 'нім')">DE</a></li>
-                        <li><a href="#" class="active" onclick="changeLanguage('UA', 'укр')">UA</a></li>
-                        <li><a href="#" onclick="changeLanguage('EN', 'англ')">EN</a></li>
-                        <li><a href="#" onclick="changeLanguage('RU', 'рос')">RU</a></li>
-                    </ul>
-                    </div>
-                </div>
-            </nav>
         </div>
-    
+        </div>
+    </div>
+    </nav>
+
+  <!-- 1. HERO СЕКЦІЯ & КРЕДО -->
+  <header class="hero">
+    <div class="container hero-container">
+      <div class="hero-meta fade-in">
+        <span class="luxury-tag">ARCHITECTURAL STUDIO</span>
+        <span class="luxury-tag">[ EST. 2022 ]</span>
+      </div>
+      <h1 class="fade-in-delayed">Дім — це не просто місце. <br><i>Дім — це відчуття.</i></h1>
+      <div class="hero-footer fade-in-delayed">
+        <p class="hero-p">Ми проектуємо простори з характером для людей з історією. Студія вишуканих архітектурних рішень.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. ОЛЕНА ТА ОЛЕКСАНДР (ТИЗЕР) -->
+  <section class="section-padding reveal">
+    <div class="container">
+      <div class="team-header-row">
+        <span class="luxury-tag">// 01 / СТУДІЯ</span>
+        <h2>Дві перспективи — одна спільна мета</h2>
+      </div>
+      <div class="team-grid">
+        <!-- Олена -->
+        <div class="team-card line-right">
+          <div class="team-photo-placeholder">
+            <img src="img/people/olena.png" alt="Олена Суворова"> 
+            <span>Olena Suvorova // Portrait</span>
+          </div>
+          <span class="card-role">[ КУРАТОР ЕСТЕТИКИ ]</span>
+          <h3>Олена Суворова</h3>
+          <p class="team-quote">«Там, де інші бачать межі, ми бачимо можливості. Перетворюємо бачення на матеріальну витонченість».</p>
+        </div>
+        <!-- Олександр -->
+        <div class="team-card">
+          <div class="team-photo-placeholder">
+            <!-- <img src="oleksandr.jpg" alt="Олександр Кругляк"> -->
+            <span>Oleksandr Krugliak // Portrait</span>
+          </div>
+          <span class="card-role">[ ТЕХНІЧНА ІНЖЕНЕРІЯ ]</span>
+          <h3>Олександр Кругляк</h3>
+          <p class="team-quote">«Архітектурна точність, ергономіка та безкомпромісна реалізація того, що здається неможливим».</p>
+        </div>
+      </div>
+      <div class="team-action">
+        <a href="about.html" class="btn-shelnat">
+          <span>Читати повну історію студії</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.2"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. ПОРТФОЛІО (ТИЗЕР) -->
+  <section class="section-padding reveal">
+    <div class="container">
+      <div class="section-header-clean">
+        <span class="luxury-tag">// 02 / SELECTED WORKS</span>
+        <h2>Вибрані проєкти</h2>
+      </div>
+      <div class="portfolio-teaser-grid">
+        <div class="portfolio-item item-wide">
+          <div class="portfolio-img-block"><span>Project Photography // 01</span></div>
+          <div class="portfolio-meta">
+            <h3>Minimalist Penthouse</h3>
+            <span>Berlin // 140 sq.m</span>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <div class="portfolio-img-block"><span>Project Photography // 02</span></div>
+          <div class="portfolio-meta">
+            <h3>Brutalist Villa</h3>
+            <span>Stuttgart // 320 sq.m</span>
+          </div>
+        </div>
+      </div>
+      <div class="section-action-end">
+        <a href="portfolio.html" class="btn-shelnat">
+          <span>Дивитися всі проєкти</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.2"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. ПОСЛУГИ (ТАБЛИЦЯ) -->
+  <section class="section-padding reveal">
+    <div class="container">
+      <div class="section-header-clean">
+        <span class="luxury-tag">// 03 / НАПРЯМКИ</span>
+        <h2>Послуги студії</h2>
+      </div>
+      <div class="shelnat-table">
+        <div class="table-row">
+          <div class="col-num">01/</div>
+          <div class="col-name"><h3>E-Design</h3></div>
+          <div class="col-text"><p>Преміальний формат онлайн-проєктування без прив'язки до локації. Концепт-бук, колірні палітри та повний шопінг-лист.</p></div>
+        </div>
+        <div class="table-row">
+          <div class="col-num">02/</div>
+          <div class="col-name"><h3>3D Візуалізація</h3></div>
+          <div class="col-text"><p>Фотореалістичне тривимірне відтворення інтер'єру з філігранним налаштуванням штучного та природного світла.</p></div>
+        </div>
+        <div class="table-row">
+          <div class="col-num">03/</div>
+          <div class="col-name"><h3>Концепції простору</h3></div>
+          <div class="col-text"><p>Фундаментальна розробка ергономіки, архітектурного планування та логістики інженерних мереж.</p></div>
+        </div>
+      </div>
+      <div class="section-action-end" style="margin-top: 40px;">
+        <a href="services.html" class="btn-shelnat">
+          <span>Детальні умови та ціни</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.2"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FAQ (АККОРДЕОН) -->
+  <section class="section-padding reveal">
+    <div class="container">
+      <div class="section-header-clean">
+        <span class="luxury-tag">// 04 / FAQ</span>
+        <h2>Часті запитання</h2>
+      </div>
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <div class="faq-trigger">
+            <span class="faq-title">Як проходить процес взаємодії?</span>
+            <div class="faq-plus"></div>
+          </div>
+          <div class="faq-content">
+            <p>Будь-який проєкт починається з інтерв'ю. Ми аналізуємо ваш спосіб життя та естетичні коди. Після цього розробляємо планування, візуальну концепцію та супроводжуємо проєкт до реалізації.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-trigger">
+            <span class="faq-title">Чи можлива робота над окремими зонами?</span>
+            <div class="faq-plus"></div>
+          </div>
+          <div class="faq-content">
+            <p>Так. Попри те, що ми віддаємо перевагу комплексній реалізації об'єктів «під ключ», ми беремо в роботу локальні простори, якщо вони відповідають нашій архітектурній естетиці.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. ФОРМА ЗВОРОТНОГО ЗВ'ЯЗКУ & КОНТАКТИ (ФУТЕР) -->
+  <section class="section-padding reveal" style="border-bottom: none;">
+    <div class="container contact-grid">
+      <div class="contact-left">
+        <span class="luxury-tag">// КОНТАКТИ</span>
+        <h2>Зв'язатися з нами</h2>
+        <div class="contact-links-block">
+          <p class="contact-meta-text">Маєте загальні запитання, пропозиції або бажаєте проконсультуватися? Залиште повідомлення.</p>
+          <a href="tel:+491773050655" class="contact-link">M. +49 177 3050655</a>
+          <a href="mailto:libriinteriors@gmail.com" class="contact-link">E. libriinteriors@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-right">
+        <form class="shelnat-form" id="generalContactForm">
+          <div class="input-wrapper">
+            <input type="text" required placeholder=" ">
+            <label>Ваше ім'я</label>
+          </div>
+          <div class="input-wrapper">
+            <input type="email" required placeholder=" ">
+            <label>Email адрес</label>
+          </div>
+          <div class="input-wrapper">
+            <textarea rows="3" required placeholder=" "></textarea>
+            <label>Ваше запитання чи повідомлення</label>
+          </div>
+          <button type="submit" class="btn-shelnat submit-btn">
+            <span>Надіслати повідомлення</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.2"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- КОРОТКИЙ ФУТЕР -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="f-logo">LIBRI INTERIORS</div>
+      <div class="f-copy">&copy; 2026. ARCHITECTURAL EMOTIONS.</div>
+    </div>
+  </footer>
+
+  <script src="script/index.js"></script>
 </body>
-<script src="script/index.js"></script>
 </html>

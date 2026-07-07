@@ -1,33 +1,80 @@
-// Відкриття / закриття дропдауну
-function toggleLangMenu() {
-  const switcher = document.querySelector('.lang-switcher');
-  switcher.classList.toggle('open');
-}
-
-// Зміна мови та закриття меню
-function changeLanguage(langCode, langName) {
-  // Оновлюємо текст на кнопці
-  document.querySelector('.current-lang').textContent = langCode;
-  
-  // Оновлюємо активний клас у списку
-  document.querySelectorAll('.lang-dropdown a').forEach(el => {
-    el.classList.remove('active');
-    if (el.textContent === langCode) {
-      el.classList.add('active');
-    }
-  });
-  
-  // Закриваємо меню
-  document.querySelector('.lang-switcher').classList.remove('open');
-  
-  // Тут можна додати логіку для зміни контенту на сайті, наприклад:
-  console.log(`Мову змінено на: ${langName}`);
-}
-
-// Закриття меню, якщо клікнули за його межами
-document.addEventListener('click', function(event) {
-  const switcher = document.querySelector('.lang-switcher');
-  if (!switcher.contains(event.target)) {
-    switcher.classList.remove('open');
+// --- ЕФЕКТ СКРОЛУ НАВІГАЦІЇ ---
+window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 60) {
+    navbar.style.padding = '20px 0';
+  } else {
+    navbar.style.padding = '35px 0';
   }
 });
+
+// --- FAQ АККОРДЕОН ---
+document.querySelectorAll('.faq-trigger').forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    const item = trigger.parentElement;
+    const content = item.querySelector('.faq-content');
+    const isActive = item.classList.contains('active');
+    
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('active');
+      i.querySelector('.faq-content').style.maxHeight = '0';
+    });
+    
+    if (!isActive) {
+      item.classList.add('active');
+      content.style.maxHeight = content.scrollHeight + 'px';
+    }
+  });
+});
+
+// --- SMOOTH REVEAL ANIMATION ON SCROLL ---
+const revealElements = document.querySelectorAll('.reveal');
+const scrollObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+revealElements.forEach(el => scrollObserver.observe(el));
+
+// --- ОБРОБКА ВІДПРАВКИ ФОРМ ---
+const generalForm = document.getElementById('generalContactForm');
+if (generalForm) {
+  generalForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert("Повідомлення надіслано. Ми відповімо вам найближчим часом.");
+    this.reset();
+  });
+}
+
+const briefForm = document.getElementById('projectBriefForm');
+if (briefForm) {
+  briefForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert("Дякуємо! Анкету проєкту успішно надіслано студії. Олена та Олександр зв'яжуться з вами.");
+    this.reset();
+  });
+}
+
+
+// --- КЕРУВАННЯ МЕНЮ МОВ ---
+const langSelector = document.querySelector('.lang-selector');
+const langBtn = document.getElementById('langBtn');
+
+if (langBtn && langSelector) {
+  // Перемикання стану при кліку на кнопку
+  langBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Зупиняє закриття від кліку по самій кнопці
+    langSelector.classList.toggle('active');
+  });
+
+  // Закриття меню, якщо клікнути повз нього
+  document.addEventListener('click', (e) => {
+    if (!langSelector.contains(e.target)) {
+      langSelector.classList.remove('active');
+    }
+  });
+}

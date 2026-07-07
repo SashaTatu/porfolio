@@ -1,152 +1,473 @@
-/* Обнулення базових стилів */
+/* --- ОСНОВА & СКИДАННЯ --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif; /* Або будь-який інший преміальний шрифт */
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
 }
 
-/* Навігаційна панель — Фон у 4-му кольорі (#E5E2DC) */
-.navbar {
-  background-color: #edeced;
-  border-bottom: 1px solid #dfdcdf; /* 3-й колір для тонкої лінії */
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  padding: 20px 0;
+body {
+  background-color: #F9F6F4;
+  color: #8E857B;
+  -webkit-font-smoothing: antialiased;
 }
 
-.nav-container {
-  max-width: 1200px;
+h1, h2, h3, h4, i {
+  font-family: 'Cormorant Garamond', serif;
+  color: #666956;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: clamp(34px, 4.5vw, 50px);
+  line-height: 1.15;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.container {
+  max-width: 1400px;
   margin: 0 auto;
+  padding: 0 50px;
+}
+
+.section-padding {
+  padding: 150px 0;
+  border-bottom: 1px solid rgba(201, 194, 189, 0.35);
+  position: relative;
+  z-index: 1;
+}
+
+.luxury-tag {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #8E857B;
+}
+
+/* --- BACKGROUND LINED GRID --- */
+.bg-grid-lines {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
   display: flex;
   justify-content: space-between;
+  padding: 0 50px;
+  z-index: 0;
+}
+.grid-line {
+  width: 1px; height: 100%;
+  background-color: rgba(201, 194, 189, 0.15);
+}
+
+/* --- НАВІГАЦІЯ --- */
+
+
+.navbar {
+  position: fixed;
+  width: 100%; top: 0; left: 0; z-index: 100;
+  padding: 35px 0;
+  border-bottom: 1px solid rgba(201, 194, 189, 0.3);
+  background-color: rgba(249, 246, 244, 0.85);
+  backdrop-filter: blur(12px);
+  transition: padding 0.3s;
+}
+
+/* --- КОНТЕЙНЕР НАВІГАЦІЇ --- */
+.nav-container {
+  display: flex; 
+  justify-content: space-between; /* Базове рознесення */
   align-items: center;
-  padding: 0 30px;
+  width: 100%;
 }
 
-/* Логотип — Темно-оливковий (#666956) */
+.nav-logo-img-kolibri {
+  width: 60px; /* Розмір логотипу */
+  height: auto;
+  margin-right: 15px; /* Відступ між логотипом та текстом */
+  flex-shrink: 0; /* Захищає логотип від стискання іншими елементами */
+}   
+
+/* Логотип чітко зліва */
 .nav-logo {
+  font-size: 14px; 
+  font-weight: 500; 
+  letter-spacing: 5px; 
   color: #666956;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-decoration: none;
+  text-align: left; /* Вирівнює текст по правому краю */
+  line-height: 1.2;  /* Робить компактний, дорогий відступ між рядками */
+  flex-shrink: 0;    /* Захищає лого від стискання іншими елементами */
+  display: block;
 }
 
-/* Список посилань */
-.nav-links {
+/* Список розділів плавно зміщується вправо */
+.nav-links { 
+  display: flex; 
+  list-style: none; 
+  gap: 50px; 
+  margin-left: auto; /* МАГІЯ: штовхає цей блок і все, що після нього, максимально вправо */
+  margin-right: 40px; /* Створює делікатний відступ між розділами та кнопкою замовлення */
+}
+
+
+/* Права група: кнопка + мови */
+.nav-actions {
   display: flex;
-  list-style: none;
-  gap: 40px;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0; /* Захищає блок від перенесення */
 }
 
+/* Базовий стан посилань */
 .nav-item {
-  text-decoration: none;
-  color: #8E857B; /* 2-й колір для дефолтного стану */
-  font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: color 0.3s ease;
+  font-size: 11px; 
+  text-transform: uppercase; 
+  letter-spacing: 2px;
   position: relative;
+  padding: 8px 0;
+  /* Плавність у стилі Shelnat: уповільнення в кінці руху */
+  transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+              color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Ефект при наведенні та активний стан — Темно-оливковий */
-.nav-item:hover, 
+/* 1. МАГІЯ ЗГАСАННЯ: Коли ми наводимо на ВЕСЬ список, УСІ пункти стають прозорішими... */
+.nav-links:hover .nav-item { 
+  opacity: 0.35; 
+}
+
+/* ...а той один пункт, на який наведена мишка, спалахує на 100% */
+.nav-links .nav-item:hover { 
+  opacity: 1; 
+  color: #666956; 
+}
+
+/* Активний розділ (на якому користувач перебуває) */
 .nav-item.active {
+  opacity: 1;
   color: #666956;
 }
 
-/* Елегантне підкреслення при наведенні */
+/* 2. СТИЛЬНА ЛІНІЯ ПІД ТЕКСТОМ */
+/* Створюємо невидиму тонку нитку під кожним пунктом */
 .nav-item::after {
   content: '';
   position: absolute;
+  bottom: 0;
+  left: 50%; /* Старт з центру */
   width: 0;
-  height: 1px;
-  bottom: -4px;
-  left: 0;
+  height: 1px; /* Товщина в 1 піксель — суворий архітектурний стиль */
   background-color: #666956;
-  transition: width 0.3s ease;
+  /* Лінія розгортається з центру в обидва боки */
+  transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+              left 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+/* Поведінка лінії при наведенні та для активного пункту */
 .nav-item:hover::after,
 .nav-item.active::after {
   width: 100%;
+  left: 0;
 }
 
-/* Перемикач мови */
-.lang-switcher {
-  position: relative;
-}
-
-.lang-btn {
-  background: none;
-  border: none;
+/* Преміум-кнопка в шапці (без закруглень, сувора) */
+.btn-nav-order {
+  border: 1px solid #666956;
+  padding: 12px 25px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   color: #666956;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
+  position: relative;
+  background: transparent;
+  transition: color 0.3s;
+}
+.btn-nav-order::before {
+  content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
+  background-color: #666956; transform: scaleY(0);
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-origin: bottom; z-index: -1;
+}
+.btn-nav-order:hover { color: #F9F6F4; }
+.btn-nav-order:hover::before { transform: scaleY(1); }
+
+/* --- ГРУПУВАННЯ ЕЛЕМЕНТІВ СПРАВА --- */
+.nav-actions {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  gap: 15px;
 }
 
-.lang-btn:hover {
-  background-color: #F9F6F4; /* 5-й колір для легкого ховеру */
+/* Оновлена кнопка замовлення з округленням (як на скріншоті) */
+/* Преміальна кнопка (заповнення знизу вгору) */
+.btn-nav-order {
+  border: 1px solid #666956;
+  padding: 12px 25px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #666956;
+  background: transparent;
+  border-radius: 40px; /* Кругла капсула */
+  font-weight: 500;
+  position: relative;
+  overflow: hidden; /* Ховає фон, що виходить за закруглені кути */
+  z-index: 1;
+  display: inline-block;
+  transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+              border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.arrow-icon {
-  transition: transform 0.3s ease;
-}
-
-/* Поворот стрілочки при відкритті */
-.lang-switcher.open .arrow-icon {
-  transform: rotate(180deg);
-}
-
-/* Випадаюче меню мов — М'який білий фон (#F9F6F4) */
-.lang-dropdown {
+/* Шторка, яка ховається внизу кнопки */
+.btn-nav-order::before {
+  content: '';
   position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
-  background-color: #F9F6F4;
-  border: 1px solid #C9C2BD;
-  border-radius: 6px;
-  list-style: none;
-  min-width: 80px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #666956; /* Колір заливки */
+  transform: scaleY(0); /* Стиснута в нуль по вертикалі */
+  transform-origin: bottom; /* Анімація росте знизу вгору */
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: -1; /* Лягає під текст */
+}
+
+/* ЕФЕКТ ПРИ НАВЕДЕННІ (HOVER) */
+.btn-nav-order:hover {
+  color: #F9F6F4; /* Текст плавно міняє колір на світлий */
+  border-color: #666956;
+  transform: translateY(-2px); /* Делікатне підведення кнопки вгору */
+}
+
+.btn-nav-order:hover::before {
+  transform: scaleY(1); /* Шторка повністю виростає вгору */
+}
+
+/* Ефект при натисканні (кліку) */
+.btn-nav-order:active {
+  transform: translateY(0); /* Повертається на місце при кліку */
+}
+
+
+/* --- СЕЛЕКТОР МОВ --- */
+.lang-selector {
+  position: relative;
+  display: inline-block;
+}
+
+/* Кнопка вибору мови */
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(201, 194, 189, 0.6);
+  background: transparent;
+  padding: 12px 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #666956;
+  border-radius: 40px;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
+.lang-btn:hover, .lang-selector.active .lang-btn {
+  border-color: #666956;
+  background-color: rgba(102, 105, 86, 0.05);
+}
 
-/* Клас для показу меню */
-.lang-switcher.open .lang-dropdown {
+/* Випадаюче меню (Dropdown) — Суворе, без заокруглень */
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 260px;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(201, 194, 189, 0.4);
+  padding: 15px 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 15px 35px rgba(142, 133, 123, 0.1);
+  
+  /* Початковий стан: приховано */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 200;
+}
+
+/* Клас активації через JS */
+.lang-selector.active .lang-dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-.lang-dropdown li a {
-  display: block;
-  padding: 10px 16px;
-  text-decoration: none;
-  color: #8E857B;
-  font-size: 13px;
+/* Пункти меню */
+.lang-dropdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 25px;
+  font-size: 14px;
+  color: #2c2c2c;
+  font-weight: 400;
+  transition: background 0.2s ease;
+}
+.lang-dropdown-item:hover {
+  background-color: #F9F6F4;
+}
+.lang-dropdown-item.active {
+  color: #666956;
   font-weight: 500;
-  text-align: center;
-  transition: all 0.2s ease;
 }
 
-.lang-dropdown li a:hover,
-.lang-dropdown li a.active {
-  background-color: #E5E2DC; /* 4-й колір при ховері в меню */
-  color: #666956;
+/* Неактивні мови (як на скріншоті) */
+.lang-dropdown-item.standard-disabled {
+  color: #8E857B;
+  pointer-events: none; /* Вимикає клікабельність */
+}
+
+/* Тег "незабаром" */
+.soon-tag {
+  font-size: 11px;
+  color: #C9C2BD;
+  font-weight: 300;
+}
+
+/* --- HERO & КРЕДО --- */
+.hero { height: 100vh; display: flex; align-items: flex-end; padding-bottom: 120px; position: relative; z-index: 1; }
+.hero-container { width: 100%; }
+.hero-meta { display: flex; justify-content: space-between; margin-bottom: 40px; border-bottom: 1px solid rgba(201, 194, 189, 0.35); padding-bottom: 15px; }
+.hero h1 { font-size: clamp(44px, 6.5vw, 80px); line-height: 1.05; margin-bottom: 50px; }
+.hero-footer { display: flex; justify-content: space-between; align-items: flex-end; }
+.hero-p { font-size: 15px; font-weight: 300; max-width: 500px; line-height: 1.7; }
+
+/* КНОПКА SHELNAT СТРІЛКА */
+.btn-shelnat { display: inline-flex; align-items: center; gap: 15px; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #666956; padding: 10px 0; position: relative; border: none; background: transparent; cursor: pointer; }
+.btn-shelnat svg { transition: transform 0.3s ease; }
+.btn-shelnat::after { content: ''; position: absolute; bottom: 4px; left: 0; width: 100%; height: 1px; background-color: #666956; transform: scaleX(0); transform-origin: right; transition: transform 0.3s ease; }
+.btn-shelnat:hover::after { transform: scaleX(1); transform-origin: left; }
+.btn-shelnat:hover svg { transform: translate(3px, -3px); }
+
+/* --- ОЛЕНА ТА ОЛЕКСАНДР СЕКЦІЯ --- */
+.team-header-row { margin-bottom: 50px; }
+.team-grid { display: flex; border-top: 1px solid rgba(201, 194, 189, 0.4); }
+.team-card { flex: 1; padding: 60px 40px 40px 0; }
+.team-card.line-right { border-right: 1px solid rgba(201, 194, 189, 0.4); padding-left: 0; padding-right: 40px; }
+.team-card:last-child { padding-left: 40px; padding-right: 0; }
+
+/* Прямокутні суворі блоки для фото */
+.team-photo-placeholder {
+  width: 100%; height: 450px; background-color: #E5E2DC;
+  margin-bottom: 30px; display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif; font-style: italic; color: #8E857B;
+}
+.team-photo-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+.card-role { display: block; font-size: 10px; letter-spacing: 2px; margin-bottom: 15px; }
+.team-card h3 { font-size: 28px; margin-bottom: 15px; }
+.team-quote { font-size: 14px; font-weight: 300; line-height: 1.7; text-align: left; }
+.team-action { margin-top: 40px; }
+
+/* --- ПОРТФОЛІО ТИЗЕР --- */
+.section-header-clean { margin-bottom: 50px; }
+.portfolio-teaser-grid { display: flex; gap: 50px; }
+.portfolio-item { flex: 1; }
+.portfolio-item.item-wide { flex: 1.4; }
+.portfolio-img-block { width: 100%; height: 500px; background-color: #E5E2DC; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-style: italic; }
+.portfolio-meta { display: flex; justify-content: space-between; align-items: baseline; margin-top: 20px; }
+.portfolio-meta h3 { font-size: 24px; }
+.portfolio-meta span { font-size: 12px; font-weight: 300; }
+.section-action-end { display: flex; justify-content: flex-end; margin-top: 40px; }
+
+/* --- СУВОРА ТАБЛИЦЯ ПОСЛУГ --- */
+.shelnat-table { border-top: 1px solid #C9C2BD; }
+.table-row { display: flex; padding: 45px 0; border-bottom: 1px solid rgba(201, 194, 189, 0.4); }
+.col-num { flex: 0.5; font-size: 11px; }
+.col-name { flex: 1.5; }
+.col-name h3 { font-size: 30px; }
+.col-text { flex: 3; font-size: 14px; font-weight: 300; line-height: 1.7; }
+
+/* --- FAQ ACCORDION --- */
+.faq-accordion { max-width: 900px; margin-left: auto; }
+.faq-item { border-bottom: 1px solid rgba(201, 194, 189, 0.4); }
+.faq-trigger { padding: 30px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+.faq-title { font-size: 16px; color: #666956; text-transform: uppercase; letter-spacing: 1px; }
+.faq-plus { position: relative; width: 12px; height: 12px; }
+.faq-plus::before, .faq-plus::after { content: ''; position: absolute; background-color: #666956; transition: transform 0.3s; }
+.faq-plus::before { top: 5px; left: 0; width: 12px; height: 1px; }
+.faq-plus::after { top: 0; left: 5px; width: 1px; height: 12px; }
+.faq-item.active .faq-plus::after { transform: rotate(90deg); opacity: 0; }
+.faq-item.active .faq-plus::before { transform: rotate(180deg); }
+.faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+.faq-content p { padding-bottom: 30px; font-size: 14px; font-weight: 300; line-height: 1.7; }
+
+/* --- КОНТАКТИ ТА ФОРМИ --- */
+.contact-grid { display: flex; gap: 100px; }
+.contact-left { flex: 1; }
+.contact-left h2 { margin: 25px 0 40px; }
+.contact-meta-text { font-size: 14px; font-weight: 300; line-height: 1.7; margin-bottom: 30px; }
+.contact-links-block { display: flex; flex-direction: column; gap: 15px; }
+.contact-link { font-size: 18px; color: #666956; font-family: 'Cormorant Garamond', serif; width: fit-content; }
+.contact-right { flex: 1.2; }
+
+.shelnat-form { display: flex; flex-direction: column; gap: 45px; }
+.input-wrapper { position: relative; }
+.shelnat-form input, .shelnat-form textarea {
+  width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(201, 194, 189, 0.6);
+  padding: 12px 0; color: #666956; font-size: 14px; font-weight: 300; transition: border-color 0.3s;
+}
+.shelnat-form input:focus, .shelnat-form textarea:focus { outline: none; border-bottom-color: #666956; }
+.input-wrapper label {
+  position: absolute; left: 0; top: 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;
+  color: #8E857B; pointer-events: none; transition: all 0.3s ease;
+}
+/* Ефект зсуву підпису вгору при фокусі або наявності тексту */
+.shelnat-form input:focus ~ label,
+.shelnat-form input:not(:placeholder-shown) ~ label,
+.shelnat-form textarea:focus ~ label,
+.shelnat-form textarea:not(:placeholder-shown) ~ label {
+  top: -15px; font-size: 9px; color: #666956; opacity: 1;
+}
+.submit-btn { border: none; background: transparent; }
+
+/* --- СТИЛІ СТОРІНКИ ЗАМОВЛЕННЯ (BRIEF) --- */
+.order-page-main { padding-top: 200px; }
+.order-container { max-width: 850px; margin: 0 auto; }
+.order-header { text-align: center; margin-bottom: 60px; }
+.order-header h2 { margin: 20px 0; font-size: 42px; }
+.order-subtitle { font-size: 15px; font-weight: 300; line-height: 1.7; }
+.form-grid-2 { display: flex; gap: 40px; }
+.form-grid-2 .input-wrapper { flex: 1; }
+
+.form-group-select { display: flex; flex-direction: column; gap: 15px; margin: 15px 0; }
+.select-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+.radio-group { display: flex; gap: 30px; }
+.radio-label { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 300; cursor: pointer; }
+.radio-label input[type="radio"] { accent-color: #666956; }
+.submit-btn-large { width: 100%; justify-content: center; border-top: 1px solid rgba(201, 194, 189, 0.5); padding: 25px 0; }
+
+/* --- ФУТЕР --- */
+.footer { padding: 40px 0; border-top: 1px solid rgba(201, 194, 189, 0.2); }
+.footer-container { display: flex; justify-content: space-between; align-items: center; }
+.f-logo { font-size: 12px; letter-spacing: 4px; color: #666956; font-weight: 500; }
+.f-copy { font-size: 10px; letter-spacing: 1px; }
+
+/* --- СКРОЛ АНІМАЦІЇ --- */
+.fade-in { opacity: 0; transform: translateY(15px); animation: sFade 1s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.fade-in-delayed { opacity: 0; transform: translateY(15px); animation: sFade 1s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards; }
+.reveal { opacity: 0; transform: translateY(30px); transition: all 1s cubic-bezier(0.25, 1, 0.5, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+@keyframes sFade { to { opacity: 1; transform: translateY(0); } }
+
+/* АДАПТИВНІСТЬ */
+@media (max-width: 992px) {
+  .container, .bg-grid-lines { padding: 0 25px; }
+  .team-grid, .portfolio-teaser-grid, .table-row, .contact-grid, .form-grid-2 { flex-direction: column; gap: 45px; }
+  .team-card, .team-card.line-right, .team-card:last-child { padding: 40px 0; border-right: none; border-bottom: 1px solid rgba(201, 194, 189, 0.3); }
+  .hero-footer { flex-direction: column; align-items: flex-start; gap: 35px; }
+  .nav-links { display: none; }
+  .radio-group { flex-direction: column; gap: 12px; }
 }

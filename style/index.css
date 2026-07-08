@@ -302,6 +302,8 @@ a { text-decoration: none; color: inherit; }
   background-repeat: no-repeat;
   z-index: 0;
   animation: kenBurnsEffect 20s ease-in-out infinite alternate;
+  /* Оптимізація для плавної Ken Burns анімації */
+  will-change: transform;
 }
 
 .hero-overlay {
@@ -838,6 +840,7 @@ a { text-decoration: none; color: inherit; }
   transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1),
               transform 1.2s cubic-bezier(0.25, 1, 0.5, 1),
               filter 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  /* Підказка для апаратного прискорення рендерингу */
   will-change: transform, opacity, filter;
 }
 

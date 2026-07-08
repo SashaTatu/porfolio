@@ -62,8 +62,6 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* --- НАВІГАЦІЯ --- */
-
-
 .navbar {
   position: fixed;
   width: 100%; top: 0; left: 0; z-index: 100;
@@ -74,132 +72,88 @@ a { text-decoration: none; color: inherit; }
   transition: padding 0.3s;
 }
 
-/* --- КОНТЕЙНЕР НАВІГАЦІЇ --- */
 .nav-container {
   display: flex; 
-  justify-content: space-between; /* Базове рознесення */
+  justify-content: space-between;
   align-items: center;
   width: 100%;
 }
 
 .nav-logo-img-kolibri {
-  width: 40px; /* Розмір логотипу */
+  width: 40px;
   height: auto;
-  margin-right: 15px; /* Відступ між логотипом та текстом */
-  flex-shrink: 0; /* Захищає логотип від стискання іншими елементами */
+  margin-right: 15px;
+  flex-shrink: 0;
 }   
 
-/* Логотип чітко зліва */
 .nav-logo {
   font-size: 14px; 
   font-weight: 500; 
   letter-spacing: 5px; 
   color: #666956;
-  text-align: left; /* Вирівнює текст по правому краю */
-  line-height: 1.2;  /* Робить компактний, дорогий відступ між рядками */
-  flex-shrink: 0;    /* Захищає лого від стискання іншими елементами */
+  text-align: left;
+  line-height: 1.2;
+  flex-shrink: 0;
   display: block;
 }
 
-/* Список розділів плавно зміщується вправо */
 .nav-links { 
   display: flex; 
   list-style: none; 
   gap: 50px; 
-  margin-left: auto; /* МАГІЯ: штовхає цей блок і все, що після нього, максимально вправо */
-  margin-right: 40px; /* Створює делікатний відступ між розділами та кнопкою замовлення */
+  margin-left: auto;
+  margin-right: 40px;
 }
 
-
-/* Права група: кнопка + мови */
 .nav-actions {
   display: flex;
   align-items: center;
   gap: 15px;
-  flex-shrink: 0; /* Захищає блок від перенесення */
+  flex-shrink: 0;
 }
 
-/* Базовий стан посилань */
 .nav-item {
   font-size: 11px; 
   text-transform: uppercase; 
   letter-spacing: 2px;
   position: relative;
   padding: 8px 0;
-  /* Плавність у стилі Shelnat: уповільнення в кінці руху */
   transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
               color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* 1. МАГІЯ ЗГАСАННЯ: Коли ми наводимо на ВЕСЬ список, УСІ пункти стають прозорішими... */
 .nav-links:hover .nav-item { 
   opacity: 0.35; 
 }
 
-/* ...а той один пункт, на який наведена мишка, спалахує на 100% */
 .nav-links .nav-item:hover { 
   opacity: 1; 
   color: #666956; 
 }
 
-/* Активний розділ (на якому користувач перебуває) */
 .nav-item.active {
   opacity: 1;
   color: #666956;
 }
 
-/* 2. СТИЛЬНА ЛІНІЯ ПІД ТЕКСТОМ */
-/* Створюємо невидиму тонку нитку під кожним пунктом */
 .nav-item::after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 50%; /* Старт з центру */
+  left: 50%;
   width: 0;
-  height: 1px; /* Товщина в 1 піксель — суворий архітектурний стиль */
+  height: 1px;
   background-color: #666956;
-  /* Лінія розгортається з центру в обидва боки */
   transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
               left 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Поведінка лінії при наведенні та для активного пункту */
 .nav-item:hover::after,
 .nav-item.active::after {
   width: 100%;
   left: 0;
 }
 
-/* Преміум-кнопка в шапці (без закруглень, сувора) */
-.btn-nav-order {
-  border: 1px solid #666956;
-  padding: 12px 25px;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #666956;
-  position: relative;
-  background: transparent;
-  transition: color 0.3s;
-}
-.btn-nav-order::before {
-  content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
-  background-color: #666956; transform: scaleY(0);
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-  transform-origin: bottom; z-index: -1;
-}
-.btn-nav-order:hover { color: #F9F6F4; }
-.btn-nav-order:hover::before { transform: scaleY(1); }
-
-/* --- ГРУПУВАННЯ ЕЛЕМЕНТІВ СПРАВА --- */
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-/* Оновлена кнопка замовлення з округленням (як на скріншоті) */
-/* Преміальна кнопка (заповнення знизу вгору) */
 .btn-nav-order {
   border: 1px solid #666956;
   padding: 12px 25px;
@@ -208,10 +162,10 @@ a { text-decoration: none; color: inherit; }
   letter-spacing: 2px;
   color: #666956;
   background: transparent;
-  border-radius: 40px; /* Кругла капсула */
+  border-radius: 40px;
   font-weight: 500;
   position: relative;
-  overflow: hidden; /* Ховає фон, що виходить за закруглені кути */
+  overflow: hidden;
   z-index: 1;
   display: inline-block;
   transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
@@ -219,7 +173,6 @@ a { text-decoration: none; color: inherit; }
               transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Шторка, яка ховається внизу кнопки */
 .btn-nav-order::before {
   content: '';
   position: absolute;
@@ -227,29 +180,26 @@ a { text-decoration: none; color: inherit; }
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #666956; /* Колір заливки */
-  transform: scaleY(0); /* Стиснута в нуль по вертикалі */
-  transform-origin: bottom; /* Анімація росте знизу вгору */
+  background-color: #666956;
+  transform: scaleY(0);
+  transform-origin: bottom;
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-  z-index: -1; /* Лягає під текст */
+  z-index: -1;
 }
 
-/* ЕФЕКТ ПРИ НАВЕДЕННІ (HOVER) */
 .btn-nav-order:hover {
-  color: #F9F6F4; /* Текст плавно міняє колір на світлий */
+  color: #F9F6F4;
   border-color: #666956;
-  transform: translateY(-2px); /* Делікатне підведення кнопки вгору */
+  transform: translateY(-2px);
 }
 
 .btn-nav-order:hover::before {
-  transform: scaleY(1); /* Шторка повністю виростає вгору */
+  transform: scaleY(1);
 }
 
-/* Ефект при натисканні (кліку) */
 .btn-nav-order:active {
-  transform: translateY(0); /* Повертається на місце при кліку */
+  transform: translateY(0);
 }
-
 
 /* --- СЕЛЕКТОР МОВ --- */
 .lang-selector {
@@ -257,7 +207,6 @@ a { text-decoration: none; color: inherit; }
   display: inline-block;
 }
 
-/* Кнопка вибору мови */
 .lang-btn {
   display: flex;
   align-items: center;
@@ -272,12 +221,12 @@ a { text-decoration: none; color: inherit; }
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .lang-btn:hover, .lang-selector.active .lang-btn {
   border-color: #666956;
   background-color: rgba(102, 105, 86, 0.05);
 }
 
-/* Випадаюче меню (Dropdown) — Суворе, без заокруглень */
 .lang-dropdown {
   position: absolute;
   top: calc(100% + 10px);
@@ -289,8 +238,6 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   flex-direction: column;
   box-shadow: 0 15px 35px rgba(142, 133, 123, 0.1);
-  
-  /* Початковий стан: приховано */
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
@@ -298,14 +245,12 @@ a { text-decoration: none; color: inherit; }
   z-index: 200;
 }
 
-/* Клас активації через JS */
 .lang-selector.active .lang-dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-/* Пункти меню */
 .lang-dropdown-item {
   display: flex;
   justify-content: space-between;
@@ -316,29 +261,28 @@ a { text-decoration: none; color: inherit; }
   font-weight: 400;
   transition: background 0.2s ease;
 }
+
 .lang-dropdown-item:hover {
   background-color: #F9F6F4;
 }
+
 .lang-dropdown-item.active {
   color: #666956;
   font-weight: 500;
 }
 
-/* Неактивні мови (як на скріншоті) */
 .lang-dropdown-item.standard-disabled {
   color: #8E857B;
-  pointer-events: none; /* Вимикає клікабельність */
+  pointer-events: none;
 }
 
-/* Тег "незабаром" */
 .soon-tag {
   font-size: 11px;
   color: #C9C2BD;
   font-weight: 300;
 }
 
-
-/* --- HERO ЕКРАН (КОНТЕЙНЕР-ОБОЛОНКА) --- */
+/* --- HERO ЕКРАН --- */
 .hero-image-bg {
   position: relative;
   height: 100vh;
@@ -346,135 +290,81 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   align-items: flex-end;
   padding-bottom: 120px;
-  overflow: hidden; /* КРИТИЧНО: ховає краї фотографії, коли вона збільшується */
-  
-  /* ВИДАЛЯЄМО ЗВІДСИ background-image, бо тепер він нижче */
+  overflow: hidden;
 }
 
-/* --- ШАР З КАРТИНКОЮ (ЕФЕКТ KEN BURNS) --- */
 .hero-bg-image {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('../img/background/credo-back.jpg'); /* Твій шлях до фото */
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url('../img/background/credo-back.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   z-index: 0;
-  
-  /* Запуск преміального повільного танення та руху */
   animation: kenBurnsEffect 20s ease-in-out infinite alternate;
 }
 
-
-/* Делікатне журнальне затемнення фотографії */
-/* --- ОНОВЛЕНИЙ ШАР ЗАТЕМНЕННЯ ТА ЧІТКОСТІ --- */
 .hero-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-
-    background:
-        /* затемнення зліва */
-        linear-gradient(
-            90deg,
-            rgba(18,16,15,0.58) 0%,
-            rgba(18,16,15,0.40) 28%,
-            rgba(18,16,15,0.18) 55%,
-            rgba(18,16,15,0.05) 100%
-        ),
-
-        /* локальне затемнення під текстом */
-        radial-gradient(
-            circle at 18% 72%,
-            rgba(18,16,15,0.40) 0%,
-            rgba(18,16,15,0.18) 45%,
-            transparent 80%
-        );
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(18,16,15,0.58) 0%, rgba(18,16,15,0.40) 28%, rgba(18,16,15,0.18) 55%, rgba(18,16,15,0.05) 100%),
+    radial-gradient(circle at 18% 72%, rgba(18,16,15,0.40) 0%, rgba(18,16,15,0.18) 45%, transparent 80%);
 }
 
-/* --- ОНОВЛЕНИЙ ВЕЛИКИЙ ЗАГОЛОВОК --- */
 .hero-image-bg h1 {
   font-size: clamp(44px, 6.5vw, 80px);
   line-height: 0.9;
   margin-bottom: 50px;
   margin-top: auto;
-  color: #FFFFFF; /* Чистий білий для максимального контрасту */
+  color: #FFFFFF;
   font-weight: 300;
   text-align: left;
-  
-  /* М'яке архітектурне світіння навколо літер (замість брудної чорної тіні) 
-     Воно створює непомітний білий ореол, що захищає текст від темних штор та деталей */
   text-shadow: 0 0 40px rgba(255, 255, 255, 0.15); 
 }
 
-/* --- ОНОВЛЕНИЙ НИЖНІЙ ОПИС СТУДІЇ --- */
+.hero-image-bg h1 i {
+  color: #F9F6F4;
+}
+
 .hero-p {
   font-size: 16px;
   font-weight: 400;
   max-width: 650px;
   line-height: 1.7;
-  color: #E5E2DC; /* Текст залишається повністю видимим і яскравим */
+  color: #E5E2DC;
   text-align: left;
   letter-spacing: 0.5px;
-  
-  position: relative; /* База для позиціонування скла */
+  position: relative;
   padding: 15px 20px;
   margin-left: -20px;
-  z-index: 2; /* Виводить текст НАД склом */
+  z-index: 2;
 }
 
-/* МАГІЯ: Ефект скла, яке розчиняється окремо від тексту */
 .hero-p::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* Ховає скло ПІД текст */
-  
-  /* Налаштування самого матового скла */
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -1;
   background: rgba(20, 18, 17, 0.4); 
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  
-  /* Маска, яка розчиняє ТІЛЬКИ скло зліва направо */
   -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 100%);
   mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 100%);
 }
 
-/* Контейнер для збереження лівого вирівнювання */
 .hero-container {
   width: 100%;
   position: relative;
-  z-index: 2; /* Виводить текст поверх фотографії та затемнення */
+  z-index: 2;
 }
 
-/* Верхня мета-інформація */
-.hero-meta {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 40px;
-  border-bottom: 1px solid rgba(249, 246, 244, 0.25); /* Тонка світла лінія замість темної */
-  padding-bottom: 15px;
-}
-
-
-.hero-image-bg h1 i {
-  color: #F9F6F4; /* Курсивне слово "відчуття" також світле */
-}
-
-/* Нижній блок з описом студії */
 .hero-footer {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
-
-
 
 /* КНОПКА SHELNAT СТРІЛКА */
 .btn-shelnat { display: inline-flex; align-items: center; gap: 15px; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #666956; padding: 10px 0; position: relative; border: none; background: transparent; cursor: pointer; }
@@ -485,7 +375,6 @@ a { text-decoration: none; color: inherit; }
 
 /* --- ОЛЕНА ТА ОЛЕКСАНДР СЕКЦІЯ --- */
 .team-header-row { margin-bottom: 50px; }
-
 .team-grid {
   display: flex;
   align-items: flex-start;
@@ -493,7 +382,6 @@ a { text-decoration: none; color: inherit; }
   position: relative;
 }
 
-/* Точка з'єднання по центру — місце, де зустрічаються дві перспективи */
 .team-grid::after {
   content: '';
   position: absolute;
@@ -509,27 +397,21 @@ a { text-decoration: none; color: inherit; }
 .team-card.line-right { border-right: 1px solid rgba(201, 194, 189, 0.4); padding-left: 0; padding-right: 40px; }
 .team-card:last-child { padding-left: 40px; padding-right: 0; }
 
-/* Асиметричний зсув — двоє окремих голосів, а не дзеркальна пара */
 .team-card.line-right { transform: translateY(-32px); }
 .team-card:last-child { transform: translateY(32px); }
 
-/* --- ІДЕАЛЬНЕ ВИРІВНЮВАННЯ ФОТОГРАФІЙ КОМАНДИ --- */
 .team-photo-placeholder {
   width: 100%;
-  height: 500px; /* Суворо фіксуємо висоту для обох карток */
-  background-color: transparent; /* Прибираємо дефолтний сірий фон */
+  height: 500px;
+  background-color: transparent;
   margin-bottom: 30px;
-  overflow: hidden; /* Ховає все, що виходить за межі рамки */
+  overflow: hidden;
   position: relative;
-
-  /* Вишукане заокруглення (як у капсулі) */
   border-radius: 160px 160px 20px 20px;
   box-shadow: 0 20px 40px rgba(142, 133, 123, 0.05);
-
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* М'який градієнт знизу, що з'являється при наведенні — для картки ролі */
 .team-photo-placeholder::after {
   content: '';
   position: absolute;
@@ -542,37 +424,31 @@ a { text-decoration: none; color: inherit; }
 
 .team-card:hover .team-photo-placeholder::after { opacity: 1; }
 
-/* Налаштування самих зображень всередині рамок */
 .team-photo-placeholder img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* КЛЮЧОВИЙ ПАРАМЕТР: обрізає фото по фіксованій висоті 500px без деформації */
-  object-position: center top; /* Центрує фокус на обличчях (можна змінити на center center) */
-  filter: grayscale(100%); /* Робить обидва фото чистими ч/б в одному стилі */
-
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(100%);
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Елегантний інтерактивний ефект при наведенні на картку */
 .team-card:hover .team-photo-placeholder {
   transform: translateY(-5px);
 }
 
 .team-card:hover .team-photo-placeholder img {
-  transform: scale(1.03); /* М'яке преміальне наближення портрета */
+  transform: scale(1.03);
 }
 
-/* Роль ховається всередині фото і з'являється при наведенні */
 .card-role {
-  transform: translateY(10px);
   font-size: 10px;
   letter-spacing: 2px;
   color: #666956;
 }
 
-.team-card h3 { font-size: 35px; margin-bottom: 20px; margin-top: 20px; line-height: 1.1; color: #666956;; font-weight: 300; }
+.team-card h3 { font-size: 35px; margin-bottom: 20px; margin-top: 20px; line-height: 1.1; color: #666956; font-weight: 300; }
 
-/* Цитата як головний акцент розділу */
 .team-quote {
   position: relative;
   font-family: 'Cormorant Garamond', serif;
@@ -595,13 +471,13 @@ a { text-decoration: none; color: inherit; }
 }
 
 .team-action { margin-top: 70px; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #666956; display: flex; align-items: center; gap: 15px; }
-.team-action span { font-size: 15px;; letter-spacing: 3px; }
+.team-action span { font-size: 15px; letter-spacing: 3px; }
 
 /* --- ПОРТФОЛІО ТИЗЕР --- */
 .portfolio-capsule-section {
   padding-top: 120px;
   padding-bottom: 120px;
-  overflow: hidden; /* Захист від вильоту тексту за межі екрана */
+  overflow: hidden;
 }
 .portfolio-capsule-section h2 {
   margin-bottom: 80px;
@@ -609,27 +485,24 @@ a { text-decoration: none; color: inherit; }
   font-size: clamp(34px, 4.5vw, 50px);
 }
 
-/* Сітка на дві головні великі колонки */
 .portfolio-capsule-grid {
   display: grid;
   grid-template-columns: 1.25fr 1fr; 
-  gap: 60px 80px; /* Збільшили простір для "повітря", як у дорогих медіа */
+  gap: 60px 80px;
   align-items: start;
 }
 
-/* Базовий елемент */
 .portfolio-capsule-item {
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-/* Загальний контейнер маски для фотографій */
 .capsule-image-wrapper {
   width: 100%;
   overflow: hidden;
   position: relative;
-  background-color: #F4F2EE; /* Світла преміальна заглушка під час завантаження фото */
+  background-color: #F4F2EE;
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.3, 1);
 }
 
@@ -638,146 +511,82 @@ a { text-decoration: none; color: inherit; }
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: grayscale(8%) contrast(1.02); /* Благородний контраст для рендерів */
+  filter: grayscale(8%) contrast(1.02);
   transition: transform 1.2s cubic-bezier(0.25, 1, 0.3, 1);
 }
 
-/* --- ГЕОМЕТРІЯ І ПРОПОРЦІЇ КАПСУЛ --- */
-
-/* 1. Лівий верхній (горизонтальний) */
-.horizontal-capsule {
-  height: 360px;
-  border-radius: 180px; 
-   
-}
+.horizontal-capsule { height: 360px; border-radius: 180px; }
 .item-top-left {
   max-width: 560px;
-  /* Робимо внутрішній флекс-ряд, щоб безпечно відкинути опис праворуч без негативних маргінів */
   flex-direction: row !important; 
   align-items: flex-end;
   gap: 30px;
 }
 
-/* 2. Праве велике вертикальне вікно */
-.vertical-capsule {
-  height: 600px;
-  border-radius: 200px; /* Масивне заокруглення, що тримає форму арки/капсули */
-}
-.item-right-vertical {
-  grid-column: 2;
-  grid-row: 1 / 3; 
-  margin-top: 100px; /* Спад вниз для журнального ритму */
-}
+.vertical-capsule { height: 600px; border-radius: 200px; }
+.item-right-vertical { grid-column: 2; grid-row: 1 / 3; margin-top: 100px; }
 
-/* 3. Лівий нижній широкий овал */
-.wide-capsule {
-  height: 400px;
-  border-radius: 200px;
-}
-.item-bottom-wide {
-  grid-column: 1;
-  margin-top: -20px;
-}
+.wide-capsule { height: 400px; border-radius: 200px; }
+.item-bottom-wide { grid-column: 1; margin-top: -20px; }
 
-/* --- СТИЛЬ ТЕКСТУ (ШРИФТ ТА БЕЗПЕКА ВЕРСТКИ) --- */
 .capsule-description {
   font-family: 'Cormorant Garamond', serif;
   font-size: 16px;
   font-weight: 300;
-  font-style: italic; /* Додає візуальної витонченості архітектурному опису */
+  font-style: italic;
   color: #666956; 
   line-height: 1.4;
 }
 
-/* Абсолютно безпечне вирівнювання тексту першого блоку (праворуч від овалу) */
-.item-top-left .capsule-image-wrapper {
-  flex: 1; /* Овал займає весь доступний простір */
-  margin-right: -30px; /* Делікатно накладаємо овал на текст, щоб уникнути порожнього простору */
-}
+.item-top-left .capsule-image-wrapper { flex: 1; margin-right: -30px; }
+.item-top-left .capsule-description { width: 200px; flex-shrink: 0; padding-bottom: 20px; text-align: left; }
+.item-right-vertical .capsule-description { margin-top: 20px; padding-left: 30px; max-width: 300px; }
+.item-bottom-wide .capsule-description { margin-top: 20px; padding-left: 25px; }
 
-.item-top-left .capsule-description {
-  width: 200px;
-  flex-shrink: 0; /* Текст не стискатиметься */
-  padding-bottom: 20px;
-  text-align: left; /* Читати зліва направо вільне поле набагато комфортніше */
-}
+.portfolio-capsule-item:hover .capsule-image-wrapper { transform: translateY(-2px); }
+.portfolio-capsule-item:hover .capsule-image-wrapper img { transform: scale(1.05); }
 
-/* Описи інших блоків */
-.item-right-vertical .capsule-description {
-  margin-top: 20px;
-  padding-left: 30px;
-  max-width: 300px;
-}
-
-.item-bottom-wide .capsule-description {
-  margin-top: 20px;
-  padding-left: 25px;
-}
-
-/* --- М'ЯКИЙ ХОВЕР ЕФЕКТ --- */
-/* Ефект занурення: рамка ледь зміщується, а фото всередині масштабується */
-.portfolio-capsule-item:hover .capsule-image-wrapper {
-  transform: translateY(-2px);
-}
-
-.portfolio-capsule-item:hover .capsule-image-wrapper img {
-  transform: scale(1.05);
-}
-
-/* --- АДАПТИВНІСТЬ (БЕЗПЕЧНИЙ ПЕРЕХІД НА МОБІЛЬНІ) --- */
-@media (max-width: 992px) {
-  .portfolio-capsule-section {
-    padding-top: 80px;
-    padding-bottom: 80px;
-  }
-  .portfolio-capsule-grid {
-    grid-template-columns: 1fr;
-    gap: 50px;
-  }
-  .item-top-left {
-    flex-direction: column !important; /* На мобільних повертаємо стандартний стек */
-    align-items: flex-start;
-    max-width: 100%;
-    gap: 15px;
-  }
-  .item-top-left .capsule-description {
-    width: 100%;
-    padding-bottom: 0;
-  }
-  .item-right-vertical {
-    grid-column: 1;
-    grid-row: auto;
-    margin-top: 0;
-  }
-  .item-bottom-wide {
-    margin-top: 0;
-  }
-  .horizontal-capsule,
-  .vertical-capsule,
-  .wide-capsule {
-    height: 320px; /* Оптимальна висота, щоб фото повністю влазило в екран смартфона */
-    border-radius: 60px; /* Зменшений овал, адаптований під вузькі екрани */
-  }
-  .item-right-vertical .capsule-description,
-  .item-bottom-wide .capsule-description {
-    padding-left: 15px;
-    margin-top: 15px;
-  }
-}
-
-/* --- СУВОРА ТАБЛИЦЯ ПОСЛУГ --- */
+/* --- ТАБЛИЦЯ ПОСЛУГ (ОНОВЛЕНА) --- */
 .shelnat-table { border-top: 1px solid #C9C2BD; }
-.table-row { display: flex; padding: 45px 0; border-bottom: 1px solid rgba(201, 194, 189, 0.4); }
+.table-row { 
+  display: flex; 
+  padding: 45px 0; 
+  border-bottom: 1px solid rgba(201, 194, 189, 0.4); 
+  position: relative;
+  transition: padding-left 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-bottom-color 0.5s ease;
+  cursor: pointer;
+}
+
+.table-row:hover {
+  padding-left: 20px;
+  border-bottom-color: #666956;
+}
+
+.table-row::before {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -1px; width: 0; height: 1px;
+  background-color: #666956;
+  transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.table-row:hover::before { width: 100%; }
+
 .col-num { flex: 0.5; font-size: 11px; }
 .col-name { flex: 1.5; }
-.col-name h3 { font-size: 30px; }
+.col-name h3 { font-size: 30px; transition: color 0.4s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+.table-row:hover .col-name h3 { color: #666956; transform: translateX(5px); }
 .col-text { flex: 3; font-size: 14px; font-weight: 300; line-height: 1.7; }
 
-/* --- FAQ ACCORDION --- */
+
+
+/* --- FAQ ACCORDION (ОНОВЛЕНИЙ) --- */
+
 .faq-accordion { max-width: 900px; margin-left: auto; }
-.faq-item { border-bottom: 1px solid rgba(201, 194, 189, 0.4); }
+.faq-item { border-bottom: 1px solid rgba(201, 194, 189, 0.4); transition: border-bottom-color 0.4s ease; }
+.faq-item.active { border-bottom-color: #666956; }
 .faq-trigger { padding: 30px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
-.faq-title { font-size: 16px; color: #666956; text-transform: uppercase; letter-spacing: 1px; }
+.faq-title { font-size: 16px; color: #8E857B; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; }
+.faq-item:hover .faq-title, .faq-item.active .faq-title { color: #666956; }
 .faq-plus { position: relative; width: 12px; height: 12px; }
 .faq-plus::before, .faq-plus::after { content: ''; position: absolute; background-color: #666956; transition: transform 0.3s; }
 .faq-plus::before { top: 5px; left: 0; width: 12px; height: 1px; }
@@ -787,110 +596,290 @@ a { text-decoration: none; color: inherit; }
 .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
 .faq-content p { padding-bottom: 30px; font-size: 14px; font-weight: 300; line-height: 1.7; }
 
-/* --- КОНТАКТИ ТА ФОРМИ --- */
-.contact-grid { display: flex; gap: 100px; }
-.contact-left { flex: 1; }
-.contact-left h2 { margin: 25px 0 40px; }
-.contact-meta-text { font-size: 14px; font-weight: 300; line-height: 1.7; margin-bottom: 30px; }
-.contact-links-block { display: flex; flex-direction: column; gap: 15px; }
-.contact-link { font-size: 18px; color: #666956; font-family: 'Cormorant Garamond', serif; width: fit-content; }
-.contact-right { flex: 1.2; }
 
-.shelnat-form { display: flex; flex-direction: column; gap: 45px; }
-.input-wrapper { position: relative; }
-.shelnat-form input, .shelnat-form textarea {
-  width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(201, 194, 189, 0.6);
-  padding: 12px 0; color: #666956; font-size: 14px; font-weight: 300; transition: border-color 0.3s;
+/* ==========================================================================
+   --- РОЗДІЛ ЗВОРOТНОГО ЗВ'ЯЗКУ (ЖУРНАЛЬНИЙ МІНІМАЛІЗМ) ---
+   ========================================================================== */
+
+.contact-section-luxury {
+  padding-top: 150px;
+  padding-bottom: 150px;
 }
-.shelnat-form input:focus, .shelnat-form textarea:focus { outline: none; border-bottom-color: #666956; }
-.input-wrapper label {
-  position: absolute; left: 0; top: 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;
-  color: #8E857B; pointer-events: none; transition: all 0.3s ease;
+
+.contact-grid { 
+  display: flex; 
+  gap: 120px; 
+  align-items: flex-start;
 }
-/* Ефект зсуву підпису вгору при фокусі або наявності тексту */
-.shelnat-form input:focus ~ label,
-.shelnat-form input:not(:placeholder-shown) ~ label,
-.shelnat-form textarea:focus ~ label,
-.shelnat-form textarea:not(:placeholder-shown) ~ label {
-  top: -15px; font-size: 9px; color: #666956; opacity: 1;
+
+.contact-left { 
+  flex: 1; 
 }
-.submit-btn { border: none; background: transparent; }
 
-/* --- СТИЛІ СТОРІНКИ ЗАМОВЛЕННЯ (BRIEF) --- */
-.order-page-main { padding-top: 200px; }
-.order-container { max-width: 850px; margin: 0 auto; }
-.order-header { text-align: center; margin-bottom: 60px; }
-.order-header h2 { margin: 20px 0; font-size: 42px; }
-.order-subtitle { font-size: 15px; font-weight: 300; line-height: 1.7; }
-.form-grid-2 { display: flex; gap: 40px; }
-.form-grid-2 .input-wrapper { flex: 1; }
+.contact-left h2 { 
+  margin: 30px 0 35px; 
+  font-size: clamp(36px, 4.8vw, 54px);
+}
 
-.form-group-select { display: flex; flex-direction: column; gap: 15px; margin: 15px 0; }
-.select-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
-.radio-group { display: flex; gap: 30px; }
-.radio-label { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 300; cursor: pointer; }
-.radio-label input[type="radio"] { accent-color: #666956; }
-.submit-btn-large { width: 100%; justify-content: center; border-top: 1px solid rgba(201, 194, 189, 0.5); padding: 25px 0; }
+.contact-meta-text { 
+  font-size: 14px; 
+  font-weight: 300; 
+  line-height: 1.7; 
+  color: #8E857B;
+  margin-bottom: 50px; 
+  max-width: 480px;
+}
 
-/* --- ФУТЕР --- */
-.footer { padding: 40px 0; border-top: 1px solid rgba(201, 194, 189, 0.2); }
-.footer-container { display: flex; justify-content: space-between; align-items: center; }
-.f-logo { font-size: 12px; letter-spacing: 4px; color: #666956; font-weight: 500; }
-.f-copy { font-size: 10px; letter-spacing: 1px; }
+/* Мікроблоки контактної інформації */
+.contact-info-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-top: 1px solid rgba(201, 194, 189, 0.35);
+  padding-top: 35px;
+}
 
-/* --- СКРОЛ АНІМАЦІЇ --- */
-.fade-in { opacity: 0; transform: translateY(15px); animation: sFade 1s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-.fade-in-delayed { opacity: 0; transform: translateY(15px); animation: sFade 1s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards; }
-.reveal { opacity: 0; transform: translateY(30px); transition: all 1s cubic-bezier(0.25, 1, 0.5, 1); }
-.reveal.active { opacity: 1; transform: translateY(0); }
-@keyframes sFade { to { opacity: 1; transform: translateY(0); } }
+.info-block-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
 
-/* АДАПТИВНІСТЬ */
+.info-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #C9C2BD;
+  font-weight: 400;
+}
+
+.contact-link-luxury { 
+  font-family: 'Cormorant Garamond', serif; 
+  font-size: 22px; 
+  color: #666956; 
+  font-weight: 300;
+  width: fit-content; 
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-link-luxury:hover {
+  color: #8E857B;
+  transform: translateX(4px);
+}
+
+.contact-text-static {
+  font-size: 14px;
+  font-weight: 300;
+  color: #666956;
+}
+
+/* --- ПРАВА ЧАСТИНА: АСИМЕТРИЧНА ФОРМА --- */
+.contact-right { 
+  flex: 1.2; 
+  width: 100%;
+}
+
+.shelnat-form { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 35px; 
+}
+
+/* Обгортка полів з вирівнюванням по верхньому краю */
+.input-row-numeric {
+  display: flex;
+  align-items: flex-start; 
+  gap: 25px;
+  border-bottom: 1px solid rgba(201, 194, 189, 0.5);
+  padding-bottom: 5px;
+  position: relative;
+  transition: border-color 0.4s ease;
+}
+
+.input-row-numeric:focus-within {
+  border-color: #666956;
+}
+
+/* Архітектурний індекс поля */
+.field-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: #C9C2BD;
+  padding-top: 10px; 
+  line-height: 1;
+  user-select: none;
+  flex-shrink: 0; 
+  transition: color 0.4s ease, transform 0.4s ease;
+}
+
+.input-row-numeric:focus-within .field-num {
+  color: #666956;
+  transform: translateY(-2px);
+}
+
+.shelnat-form input, 
+.shelnat-form textarea {
+  width: 100%; 
+  background: transparent !important; 
+  border: none !important;
+  outline: none !important;
+  padding: 12px 0; 
+  color: #666956; 
+  font-size: 14px; 
+  font-weight: 300; 
+  font-family: 'Inter', sans-serif;
+}
+
+/* Фікс для textarea, щоб текст не зсувався */
+.shelnat-form textarea {
+  resize: none;
+  display: block;
+  padding-top: 14px; 
+  line-height: 1.6;
+}
+
+/* Розумний плейсхолдер */
+.shelnat-form input::placeholder,
+.shelnat-form textarea::placeholder {
+  color: #8E857B;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.shelnat-form input:focus::placeholder,
+.shelnat-form textarea:focus::placeholder {
+  opacity: 0.3;
+}
+
+.form-submit-row {
+  margin-top: 15px;
+  display: flex;
+}
+
+.submit-btn { 
+  border: none; 
+  background: transparent; 
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+
+/* ==========================================================================
+   --- КОНТРАСТНИЙ ФУТЕР ---
+   ========================================================================== */
+
+.footer {
+  padding: 80px 0; 
+  background-color: #666956; 
+  position: relative;
+  z-index: 5;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.f-logo {
+  font-size: 14px;
+  letter-spacing: 6px;
+  color: #F9F6F4; 
+  font-weight: 500;
+}
+
+.f-copy {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(249, 246, 244, 0.55); 
+  text-transform: uppercase;
+}
+
+
+/* ==========================================================================
+   --- АДAПТИВНІСТЬ ---
+   ========================================================================== */
+
 @media (max-width: 992px) {
-  .container, .bg-grid-lines { padding: 0 25px; }
-  .team-grid, .portfolio-teaser-grid, .table-row, .contact-grid, .form-grid-2 { flex-direction: column; gap: 45px; }
-  .team-card, .team-card.line-right, .team-card:last-child { padding: 40px 0; border-right: none; border-bottom: 1px solid rgba(201, 194, 189, 0.3); transform: none; }
-  .team-grid::after { display: none; }
-  .card-role { position: static; opacity: 1; transform: none; color: #8E857B; margin-bottom: 15px; }
-  .team-photo-placeholder::after { display: none; }
-  .hero-footer { flex-direction: column; align-items: flex-start; gap: 35px; }
-  .nav-links { display: none; }
-  .radio-group { flex-direction: column; gap: 12px; }
+  .contact-section-luxury {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  .contact-grid { 
+    flex-direction: column; 
+    gap: 60px; 
+  }
+  .contact-meta-text {
+    margin-bottom: 40px;
+  }
 }
 
+@media (max-width: 768px) {
+  .footer {
+    padding: 60px 0;
+  }
+  .footer-container {
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+  }
+}
 
+/* --- СКРОЛ АНІМАЦІЇ (ОНОВЛЕНІ) --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  filter: blur(2px);
+  transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1),
+              transform 1.2s cubic-bezier(0.25, 1, 0.5, 1),
+              filter 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform, opacity, filter;
+}
 
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
 
+.team-grid .team-card:nth-child(2) { transition-delay: 0.2s; }
 
-/* --- КІНЕМАТОГРАФІЧНІ АНІМАЦІЇ --- */
-
-/* 1. Магія Ken Burns: дуже повільне збільшення на 7% та мікро-зсув по діагоналі */
+/* --- КІНЕМАТОГРАФІЧНІ АНІМАЦІЇ HERO --- */
 @keyframes kenBurnsEffect {
-  0% {
-    transform: scale(1) translate(0, 0);
-  }
-  100% {
-    transform: scale(1.07) translate(-1%, -0.5%);
-  }
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.07) translate(-1%, -0.5%); }
 }
 
-/* 2. Ефект появи: елементи елегантно випливають знизу + фокусування камери (blur) */
 .fade-in-up-blur {
   opacity: 0;
   transform: translateY(30px);
-  filter: blur(4px); /* М'яке розмиття літер на старті */
+  filter: blur(4px);
   animation: fadeInUpBlurAnim 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @keyframes fadeInUpBlurAnim {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-    filter: blur(4px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0); /* Текст стає ідеально чітким */
-  }
+  0% { opacity: 0; transform: translateY(30px); filter: blur(4px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+/* --- АДПТИВНІСТЬ --- */
+@media (max-width: 992px) {
+  .container, .bg-grid-lines { padding: 0 25px; }
+  .team-grid, .table-row, .contact-grid { flex-direction: column; gap: 45px; }
+  .team-card, .team-card.line-right, .team-card:last-child { padding: 40px 0; border-right: none; border-bottom: 1px solid rgba(201, 194, 189, 0.3); transform: none; }
+  .team-grid::after { display: none; }
+  .hero-footer { flex-direction: column; align-items: flex-start; gap: 35px; }
+  .nav-links { display: none; }
+  .portfolio-capsule-grid { grid-template-columns: 1fr; gap: 50px; }
+  .item-top-left { flex-direction: column !important; align-items: flex-start; max-width: 100%; gap: 15px; }
+  .item-top-left .capsule-description { width: 100%; padding-bottom: 0; }
+  .item-right-vertical { grid-column: 1; grid-row: auto; margin-top: 0; }
+  .item-bottom-wide { margin-top: 0; }
+  .horizontal-capsule, .vertical-capsule, .wide-capsule { height: 320px; border-radius: 60px; }
+  .item-right-vertical .capsule-description, .item-bottom-wide .capsule-description { padding-left: 15px; margin-top: 15px; }
 }

@@ -44,9 +44,15 @@
     "contact_title": "Завжди <br><i>на зв'язку</i>",
     "contact_description": "Маєте запитання щодо нашої роботи, хочете поділитися своєю ідеєю чи просто залишити відгук? Ми відкриті до спілкування і відповімо вам найближчим часом.",
     "contact_name": "Ваше ім'я та прізвище",
-    "contact_email": "Email адрес",
+    "contact_email1": "Email адрес",
     "contact_message": "Ваше запитання чи повідомлення",
     "contact_submit": "Надіслати повідомлення",
+    "footer_philosophy": "Простори з характером. <br>Для людей з історіями.",
+    "footer_navigation": "// Навігація",
+    "contact_heading": "// Зв'язок",
+    "contact_email2": "Email",
     "contact_phone": "Телефон",
-    "contact_social": "Соціальні мережі"
+    "contact_social": "Соціальні мережі",
+    "contact_location": "Локація / Графік",
+    "contact_hours": "Пн — Пт : 09:00 — 18:00<br>Штутгарт, Німеччина"
 }

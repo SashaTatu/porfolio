@@ -44,9 +44,15 @@
     "contact_title": "Immer <br><i>in Kontakt</i>",
     "contact_description": "Haben Sie Fragen zu unserer Arbeit, möchten Sie Ihre Idee teilen oder einfach Feedback hinterlassen? Wir sind offen für Kommunikation und melden uns zeitnah bei Ihnen.",
     "contact_name": "Ihr Name",
-    "contact_email": "E-Mail",
+    "contact_email1": "E-Mail",
     "contact_message": "Ihre Frage oder Nachricht",
     "contact_submit": "Nachricht senden",
+    "footer_philosophy": "Räume mit Charakter. <br>Für Menschen mit Geschichten.",
+    "footer_navigation": "// Navigation",
+    "contact_heading": "// Kontakt",
     "contact_phone": "Telefon",
-    "contact_social": "Soziale Netzwerke"
+    "contact_email2": "E-Mail",
+    "contact_social": "Soziale Netzwerke",
+    "contact_location": "Standort / Öffnungszeiten",
+    "contact_hours": "Mo — Fr : 09:00 — 18:00<br>Stuttgart, Deutschland"
 }

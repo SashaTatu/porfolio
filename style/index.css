@@ -1017,59 +1017,113 @@ a { text-decoration: none; color: inherit; }
 
 
 /* ==========================================================================
-   --- ФУТЕР (У СТИЛІ НАВІГАЦІЇ) ---
+   --- ОНОВЛЕНИЙ ЕСТЕТИЧНИЙ ФУТЕР ---
    ========================================================================== */
 
 .footer {
-  padding: 60px 0; 
+  padding: 100px 0 60px; /* Більше простору зверху */
   border-top: 1px solid rgba(201, 194, 189, 0.35); 
-  background-color: rgba(249, 246, 244, 0.85); 
-  backdrop-filter: blur(12px); 
-  -webkit-backdrop-filter: blur(12px);
+  background-color: #F9F6F4; 
   position: relative;
   z-index: 100;
 }
 
 .footer-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 1.5fr; /* Чітка 3-колонна сітка */
+  gap: 80px;
   width: 100%;
-  gap: 50px;
+  align-items: flex-start;
 }
 
-.footer-left {
+/* Колонки */
+.footer-brand-col {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 25px;
 }
 
 .f-logo {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: 5px;
   color: #666956; 
   line-height: 1.2;
 }
 
+.f-brand-philosophy {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #8E857B;
+  max-width: 280px;
+}
+
 .f-copy {
   font-size: 10px;
   font-weight: 400;
   letter-spacing: 2px;
-  color: #8E857B; 
+  color: #C9C2BD; 
   text-transform: uppercase;
+  margin-top: auto; /* Притискає копірайт до низу */
+  padding-top: 20px;
 }
 
-/* Блок з контактами в лінію */
-.footer-contacts {
+/* Навігаційна колонка */
+.footer-nav-col {
   display: flex;
-  gap: 60px;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.f-column-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #8E857B;
+  font-weight: 400;
+  border-bottom: 1px solid rgba(201, 194, 189, 0.2);
+  padding-bottom: 10px;
+}
+
+.f-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.f-nav-list .f-nav-link {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #8E857B;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+  display: inline-block;
+}
+
+.f-nav-list .f-nav-link:hover {
+  color: #666956;
+  padding-left: 6px; /* Елегантний зсув вправо при наведенні */
+}
+
+/* Колонка контактів */
+.footer-contacts-col {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.footer-contacts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Контакти всередині діляться на 2 підколонки */
+  gap: 35px 25px;
 }
 
 .f-contact-item {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .f-contact-label {
@@ -1081,70 +1135,44 @@ a { text-decoration: none; color: inherit; }
 
 .f-contact-link {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
+  font-size: 17px;
   color: #666956;
   font-weight: 300;
   transition: color 0.3s ease, transform 0.3s ease;
   display: inline-block;
-  font-style: italic;
 }
 
 .f-contact-link:hover {
   color: #8E857B;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
-/* --- ОНОВЛЕНИЙ АДАПТИВ ДЛЯ ФУТЕРА --- */
+.f-contact-text {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #8E857B;
+}
+
+/* --- АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ --- */
 @media (max-width: 992px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 40px;
-  }
-  .footer-left {
-    align-items: center;
-  }
-  .f-logo {
-    text-align: center;
-  }
-  .footer-contacts {
-    flex-direction: column;
-    gap: 25px;
-    align-items: center;
-  }
-  .f-contact-link:hover {
-    transform: translateX(4px);
-  }
-}
-
-
-/* ==========================================================================
-   --- АДAПТИВНІСТЬ ---
-   ========================================================================== */
-
-@media (max-width: 992px) {
-  .contact-section-luxury {
-    padding-top: 100px;
-    padding-bottom: 100px;
-  }
-  .contact-grid { 
-    flex-direction: column; 
-    gap: 60px; 
-  }
-  .contact-meta-text {
-    margin-bottom: 40px;
-  }
-}
-
-@media (max-width: 768px) {
   .footer {
-    padding: 60px 0;
+    padding: 70px 0 40px;
   }
   .footer-container {
-    flex-direction: column;
-    gap: 24px;
-    text-align: center;
+    grid-template-columns: 1fr; /* Перебудова в одну колонку */
+    gap: 50px;
+    text-align: left;
+  }
+  .f-brand-philosophy {
+    max-width: 100%;
+  }
+  .footer-contacts-grid {
+    grid-template-columns: 1fr; /* Контакти на мобільних теж в одну лінію */
+    gap: 25px;
+  }
+  .f-copy {
+    margin-top: 20px;
   }
 }
 

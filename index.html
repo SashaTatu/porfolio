@@ -70,13 +70,20 @@
         <p class="hero-p" data-i18n="credo_main2">Ми створюємо простір для цього.<br> Разом ми створюємо простори, які не лише гарно виглядають, а й є функціональними, надихають і дають відчуття затишку, ніби вдома</p>
       </div>
     </div>
+    <div class="hero-scroll-indicator" id="scrollTrigger">
+      <div class="scroll-arrow-line">
+        <svg width="12" height="24" viewBox="0 0 12 24" fill="none">
+          <path d="M6 0V22M6 22L1 17M6 22L11 17" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
   </header>
 
-    <section class="section-padding reveal">
+    <section id="first-section" class="section-padding reveal">
     <div class="container">
         <div class="team-header-row">
-        <span class="luxury-tag">// 01 / Творці</span>
-        <h2>Дві перспективи — спільна мета</h2>
+        <span class="luxury-tag" data-i18n="team_header">// 01 / Творці</span>
+        <h2 data-i18n="team_title">Дві перспективи — спільна мета</h2>
         </div>
         
         <div class="team-grid team-grid-divider">
@@ -85,25 +92,25 @@
             <div class="team-photo-placeholder">
             <img src="img/people/olena.webp" alt="Олена Суворова" loading="lazy" width="600" height="500"> 
             </div>
-            <span class="card-role">Душа кожного приміщення</span>
-            <h3>Олена Суворова</h3>
-            <p class="team-quote">З увагою до деталей. З відчуттям затишку.</p>
+            <span class="card-role" data-i18n="olena_role">Душа кожного приміщення</span>
+            <h3 data-i18n="olena_name">Олена Суворова</h3>
+            <p class="team-quote" data-i18n="olena_quote">З увагою до деталей. З відчуттям затишку.</p>
         </div>
         
         <div class="team-card">
             <div class="team-photo-placeholder">
             <img src="img/people/oleksander.webp" alt="Олександр Кругляк" loading="lazy" width="600" height="500">
             </div>
-            <span class="card-role">Технічний геній, що стоїть за ідеями</span>
-            <h3>Олександр Кругляк</h3>
-            <p class="team-quote">Робить можливим те, що здається неможливим.</p>
+            <span class="card-role" data-i18n="oleksander_role">Технічний геній, що стоїть за ідеями</span>
+            <h3 data-i18n="oleksander_name">Олександр Кругляк</h3>
+            <p class="team-quote" data-i18n="oleksander_quote">Робить можливим те, що здається неможливим.</p>
         </div>
 
         </div>
 
         <div class="team-action">
         <a href="about.html" class="btn-shelnat">
-            <span style="font-size: 15px; letter-spacing: 3px;">Читати про нас</span>
+            <span style="font-size: 15px; letter-spacing: 3px;" data-i18n="team_action">Більше про нас</span>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.2"/></svg>
         </a>
         </div>
@@ -113,32 +120,32 @@
   <section class="section-padding reveal portfolio-capsule-section">
     <div class="container">
       <div class="section-header-clean">
-        <span class="luxury-tag">// 02 / ПОРТФОЛІО</span>
-        <h2>Простори, які ми втілили</h2>
+        <span class="luxury-tag" data-i18n="portfolio_header">// 02 / ПОРТФОЛІО</span>
+        <h2 data-i18n="portfolio_title">Простори, які ми втілили</h2>
       </div>
       <div class="portfolio-capsule-grid">
         <div class="portfolio-capsule-item item-top-left">
           <div class="capsule-image-wrapper horizontal-capsule">
             <img src="img/project/office.webp" alt="Гра вогню і тіні" loading="lazy">
           </div>
-          <p class="capsule-description">Гра вогню і тіні.</p>
+          <p class="capsule-description" data-i18n="portfolio_description_1">Гра вогню і тіні.</p>
         </div>
         <div class="portfolio-capsule-item item-right-vertical">
           <div class="capsule-image-wrapper vertical-capsule">
             <img src="img/project/bathroom.webp" alt="Антре — перше враження з душею" loading="lazy">
           </div>
-          <p class="capsule-description">Антре — перше враження з душею</p>
+          <p class="capsule-description" data-i18n="portfolio_description_2">Антре — перше враження з душею</p>
         </div>
         <div class="portfolio-capsule-item item-bottom-wide">
           <div class="capsule-image-wrapper wide-capsule">
             <img src="img/project/bedroom.webp" alt="Ліпнина в сучасному контексті" loading="lazy">
           </div>
-          <p class="capsule-description">Ліпнина в сучасному контексті</p>
+          <p class="capsule-description" data-i18n="portfolio_description_3">Ліпнина в сучасному контексті</p>
         </div>
       </div>
       <div class="section-action-end" style="margin-top: 40px;">
         <a href="portfolio.html" class="btn-shelnat">
-          <span style="font-size: 15px; letter-spacing: 3px;">Переглянути всі проєкти</span>
+          <span style="font-size: 15px; letter-spacing: 3px;" data-i18n="portfolio_action">Переглянути всі проєкти</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.2"/></svg>
         </a>
       </div>
@@ -148,29 +155,29 @@
   <section class="section-padding reveal">
     <div class="container">
       <div class="section-header-clean">
-        <span class="luxury-tag">// 03 / НАПРЯМКИ</span>
-        <h2>Послуги студії</h2>
+        <span class="luxury-tag" data-i18n="services_header">// 03 / НАПРЯМКИ</span>
+        <h2 data-i18n="services_title">Послуги</h2>
       </div>
       <div class="shelnat-table">
         <div class="table-row">
           <div class="col-num">01/</div>
-          <div class="col-name"><h3>E-Design</h3></div>
-          <div class="col-text"><p>Цифрові консультації з дизайну інтер’єру для окремих кімнат або цілих квартир — включаючи мудборд, колірну концепцію та список покупок, — у зручному онлайн-форматі.</p></div>
+          <div class="col-name" data-i18n="services_name_1"><h3>E-Design</h3></div>
+          <div class="col-text" data-i18n="services_description_1"><p>Цифрові консультації з дизайну інтер’єру для окремих кімнат або цілих квартир — включаючи мудборд, колірну концепцію та список покупок, — у зручному онлайн-форматі.</p></div>
         </div>
         <div class="table-row">
           <div class="col-num">02/</div>
-          <div class="col-name"><h3>3D-Візуалізація</h3></div>
-          <div class="col-text"><p>Фотореалістичні зображення твого майбутнього інтер’єру — так ти зможеш заздалегідь побачити, як виглядатиме твоя кімната.</p></div>
+          <div class="col-name" data-i18n="services_name_2"><h3>3D-Візуалізація</h3></div>
+          <div class="col-text" data-i18n="services_description_2"><p>Фотореалістичні зображення твого майбутнього інтер’єру — так ти зможеш заздалегідь побачити, як виглядатиме твоя кімната.</p></div>
         </div>
         <div class="table-row">
           <div class="col-num">03/</div>
-          <div class="col-name"><h3>Концепції інтер'єру та планування</h3></div>
-          <div class="col-text"><p>Індивідуально підібрані концепції оформлення, що включають планування приміщення, підбір меблів, матеріалів та освітлення — ідеально адаптовані до твого стилю та повсякденного життя.</p></div>
+          <div class="col-name" data-i18n="services_name_3"><h3>Концепції інтер'єру та планування</h3></div>
+          <div class="col-text" data-i18n="services_description_3"><p>Індивідуально підібрані концепції оформлення, що включають планування приміщення, підбір меблів, матеріалів та освітлення — ідеально адаптовані до твого стилю та повсякденного життя.</p></div>
         </div>
       </div>
       <div class="section-action-end" style="margin-top: 40px;">
         <a href="services.html" class="btn-shelnat">
-          <span style="font-size: 15px; letter-spacing: 3px;">Детальні умови та ціни</span>
+          <span style="font-size: 15px; letter-spacing: 3px;" data-i18n="services_action">Детальні умови та ціни</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.2"/></svg>
         </a>
       </div>
@@ -184,8 +191,8 @@
       
       <div class="cta-fluid-content-wrapper">
         <div class="cta-story-content">
-          <h2>Давайте почнемо <i>вашу історію</i></h2>
-          <p>Можливо, ви вже носите з собою в думках свій майбутній дім.<br>Розкажіть нам про це.<br>Разом ми зробимо це місцем, куди ви будете раді повертатися щодня.</p>
+          <h2 data-i18n="cta_story_title">Давайте почнемо <i>вашу історію</i></h2>
+          <p data-i18n="cta_story_description">Можливо, ви вже носите з собою в думках свій майбутній дім.<br>Розкажіть нам про це.<br>Разом ми зробимо це місцем, куди ви будете раді повертатися щодня.</p>
           <div class="cta-story-action">
             <a href="order.html" class="btn-cta-order" data-i18n="order-btn">Обговорити проєкт</a>
           </div>
@@ -198,34 +205,34 @@
     <div class="container" style="position: relative; z-index: 2;">
       <div class="section-header-clean">
         <span class="luxury-tag">// 04 / FAQ</span>
-        <h2>Часті запитання</h2>
+        <h2 data-i18n="faq_title">Часті запитання</h2>
       </div>
       <div class="faq-accordion">
         <div class="faq-item">
           <div class="faq-trigger">
-            <span class="faq-title">Як проходить процес взаємодії?</span>
+            <span class="faq-title" data-i18n="faq_question_1">Як проходить процес взаємодії?</span>
             <div class="faq-plus"></div>
           </div>
           <div class="faq-content">
-            <p>Ми починаємо з розмови, створюємо концепцію та супроводжуємо вас аж до її реалізації.</p>
+            <p data-i18n="faq_answer_1">Ми починаємо з розмови, створюємо концепцію та супроводжуємо вас аж до її реалізації.</p>
           </div>
         </div>
         <div class="faq-item">
           <div class="faq-trigger">
-            <span class="faq-title">Чи можлива робота над окремими зонами?</span>
+            <span class="faq-title" data-i18n="faq_question_2">Чи можлива робота над окремими зонами?</span>
             <div class="faq-plus"></div>
           </div>
           <div class="faq-content">
-            <p>Так, незалежно від того, чи це весь житловий простір, чи лише одна кімната — ми гнучко підходимо до оформлення відповідно до ваших потреб.</p>
+            <p data-i18n="faq_answer_2">Так, незалежно від того, чи це весь житловий простір, чи лише одна кімната — ми гнучко підходимо до оформлення відповідно до ваших потреб.</p>
           </div>
         </div>
         <div class="faq-item">
           <div class="faq-trigger">
-            <span class="faq-title">ЧИ ПРАЦЮЄТЕ ВИ ДИСТАНЦІЙНО(ЦЕНТРАЛІЗОВАНО/ЦИФРОВО)?</span>
+            <span class="faq-title" data-i18n="faq_question_3">ЧИ ПРАЦЮЄТЕ ВИ ДИСТАНЦІЙНО(ЦЕНТРАЛІЗОВАНО/ЦИФРОВО)?</span>
             <div class="faq-plus"></div>
           </div>
           <div class="faq-content">
-            <p>Так, ми надаємо наші послуги як на об'єкті, так і повністю в цифровому форматі, зокрема на міжнародному рівні.</p>
+            <p data-i18n="faq_answer_3">Так, ми надаємо наші послуги як на об'єкті, так і повністю в цифровому форматі, зокрема на міжнародному рівні.</p>
           </div>
         </div>
       </div>
@@ -242,28 +249,28 @@
         <div class="contact-card-box">
           
           <div class="contact-left">
-            <span class="luxury-tag">// 05 / ЗВОРОТНІЙ ЗВ'ЯЗКОК</span>
-            <h2>Завжди <br><i>на зв'язку</i></h2>
-            <p class="contact-meta-text">Маєте запитання щодо нашої роботи, хочете поділитися своєю ідеєю чи просто залишити відгук? Ми відкриті до спілкування і відповімо вам найближчим часом.</p>
+            <span class="luxury-tag" data-i18n="contact_tag">// 05 / ЗВОРОТНІЙ ЗВ'ЯЗКОК</span>
+            <h2 data-i18n="contact_title">Завжди <br><i>на зв'язку</i></h2>
+            <p class="contact-meta-text" data-i18n="contact_description">Маєте запитання щодо нашої роботи, хочете поділитися своєю ідеєю чи просто залишити відгук? Ми відкриті до спілкування і відповімо вам найближчим часом.</p>
           </div>
 
           <div class="contact-right">
             <form class="shelnat-form" id="generalContactForm">
                 <div class="input-row-numeric">
                     <span class="field-num">01</span>
-                    <input type="text" required placeholder="Ваше ім'я та прізвище">
+                    <input type="text" required data-i18n-placeholder="contact_name" placeholder="Ваше ім'я та прізвище">
                 </div>
                 <div class="input-row-numeric">
                     <span class="field-num">02</span>
-                    <input type="email" required placeholder="Email адрес">
+                    <input type="email" required data-i18n-placeholder="contact_email" placeholder="Email адрес">
                 </div>
                 <div class="input-row-numeric">
                     <span class="field-num">03</span>
-                    <textarea rows="4" required placeholder="Ваше запитання чи повідомлення"></textarea>
+                    <textarea rows="4" required data-i18n-placeholder="contact_message" placeholder="Ваше запитання чи повідомлення"></textarea>
                 </div>
                 <div class="form-submit-row">
                     <button type="submit" class="btn-shelnat submit-btn">
-                        <span style="font-size: 15px; letter-spacing: 3px;">Надіслати повідомлення</span>
+                        <span style="font-size: 15px; letter-spacing: 3px;" data-i18n="contact_submit">Надіслати повідомлення</span>
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                             <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.2"/>
                         </svg>
@@ -286,15 +293,15 @@
         
         <div class="footer-contacts">
           <div class="f-contact-item">
-            <span class="f-contact-label">Телефон</span>
+            <span class="f-contact-label" data-i18n="contact_phone">Телефон</span>
             <a href="tel:+4917661059883" class="f-contact-link">+49 176 61059883</a>
           </div>
           <div class="f-contact-item">
-            <span class="f-contact-label">Email</span>
+            <span class="f-contact-label" data-i18n="contact_email">Email</span>
             <a href="mailto:libri.interior.design@gmail.com" class="f-contact-link">libri.interior.design@gmail.com</a>
           </div>
           <div class="f-contact-item">
-            <span class="f-contact-label">Соціальні мережі</span>
+            <span class="f-contact-label" data-i18n="contact_social">Соціальні мережі</span>
             <a href="https://instagram.com/libri.interiors" target="_blank" rel="noopener" class="f-contact-link"> @libri.interiors</a>
           </div>
         </div>

@@ -20,6 +20,33 @@ document.addEventListener('DOMContentLoaded', () => {
       revealObserver.observe(element);
     });
   });
+
+  const scrollTrigger = document.getElementById('scrollTrigger');
+  const firstSection = document.getElementById('first-section');
+
+  if (scrollTrigger && firstSection) {
+    // 1. Клік для плавного скролу до першої секції
+    scrollTrigger.addEventListener('click', () => {
+      firstSection.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+    });
+
+    // 2. Автоматичне зникнення через 5 секунд (5000 мс)
+    const autoHideTimeout = setTimeout(() => {
+      scrollTrigger.classList.add('fade-out');
+    }, 5000);
+
+    // 3. Зникнення при ручному скролі користувача
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        scrollTrigger.classList.add('fade-out');
+        clearTimeout(autoHideTimeout); // Скасовуємо таймер, бо вже приховали по скролу
+      }
+    }, { passive: true }); // passive підвищує продуктивність скролу
+  }
+
   
   // 1. Плавна скрол-анімація появи блоків (IntersectionObserver)
   const revealElements = document.querySelectorAll('.reveal');
@@ -103,6 +130,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (data[key]) {
           // Використовуємо innerHTML, оскільки у вас в текстах є теги <br> та <i>
           el.innerHTML = data[key];
+        }
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(elem => {
+        const key = elem.getAttribute('data-i18n-placeholder');
+        if (data[key]) {
+          elem.placeholder = data[key]; 
         }
       });
 

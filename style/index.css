@@ -376,6 +376,66 @@ a { text-decoration: none; color: inherit; }
 .btn-shelnat:hover::after { transform: scaleX(1); transform-origin: left; }
 .btn-shelnat:hover svg { transform: translate(3px, -3px); }
 
+/* --- ІНДИКАТОР СКРОЛУ (ГЕРО) --- */
+/* Додайте це до стилів індикатора скролу, які ми писали раніше */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.55);
+  
+  /* Плавний перехід для стану зникнення */
+  transition: color 0.4s ease, opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+  
+  opacity: 0;
+  filter: blur(4px);
+  will-change: transform, opacity, filter;
+  animation: fadeInUpBlurAnim 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 1.2s;
+}
+
+
+.hero-scroll-indicator:hover {
+  color: #FFFFFF; /* Плавне підсвічування при наведенні */
+}
+
+.hero-scroll-indicator.fade-out {
+  opacity: 0 !important;
+  transform: translate(-50%, 15px) !important; /* Елегантне опускання вниз при зникненні */
+  pointer-events: none; /* Щоб на неї не можна було випадково клікнути, коли вона невидима */
+}
+
+.scroll-text {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 300;
+  user-select: none;
+}
+
+.scroll-arrow-line {
+  display: inline-flex;
+  will-change: transform;
+  /* Елегантна архітектурна анімація пульсації вниз-вгору */
+  animation: subtleScrollBounce 2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@keyframes subtleScrollBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px); /* Делікатний рух на 6 пікселів донизу */
+  }
+}
+
 /* --- ОЛЕНА ТА ОЛЕКСАНДР СЕКЦІЯ --- */
 .team-header-row { 
   margin-bottom: 60px; 

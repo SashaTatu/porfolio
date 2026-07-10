@@ -659,7 +659,7 @@ a { text-decoration: none; color: inherit; }
 .contact-bg-texture {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background-image: url('../img/background/tex4.jpg'); /* Підберіть текстуру бетону чи штукатурки */
+  background-image: url('../img/background/tex5.webp'); /* Підберіть текстуру бетону чи штукатурки */
   background-size: cover;
   background-position: center;
   z-index: 0;

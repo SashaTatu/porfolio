@@ -3,6 +3,8 @@
     "main": "Startseite",
     "about": "Über uns",
     "portfolio": "Portfolio",
-    "services": "Dienstleistungen",
-    "order-btn": "Designer bestellen"
+    "services": "Leistungen",
+    "order-btn": "Designer kontaktieren",
+    "credo_main": "Zuhause — <br>ist kein Ort.<br><i>Zuhause — <br>ist ein Gefühl.</i>",
+    "credo_main2": "Wir gestalten den Raum dafür.<br> Gemeinsam schaffen wir Räume, die nicht nur schön aussehen - sondern funktionieren, inspirieren und sich wie Zuhause anfühlen"
 }

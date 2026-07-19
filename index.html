@@ -34,7 +34,6 @@
       <!-- Десктопні лінки (автоматично ховаються на мобільних) -->
       <ul class="nav-links">
         <li><a href="#" class="nav-item active" data-i18n="main">Головна</a></li>
-        <li><a href="about.html" class="nav-item" data-i18n="about">Про нас</a></li>
         <li><a href="portfolio.html" class="nav-item" data-i18n="portfolio">Портфоліо</a></li>
         <li><a href="services.html" class="nav-item" data-i18n="services">Послуги</a></li>
       </ul>
@@ -80,7 +79,6 @@
     <div class="mobile-menu-content">
       <ul class="mobile-nav-links">
         <li><a href="#" class="mobile-nav-item active" data-i18n="main">Головна</a></li>
-        <li><a href="about.html" class="mobile-nav-item" data-i18n="about">Про нас</a></li>
         <li><a href="portfolio.html" class="mobile-nav-item" data-i18n="portfolio">Портфоліо</a></li>
         <li><a href="services.html" class="mobile-nav-item" data-i18n="services">Послуги</a></li>
       </ul>
@@ -118,47 +116,112 @@
       </div>
     </div>
   </header>
-
-  <section id="first-section" class="section-padding reveal">
+  <!-- СЕКЦІЯ: ПРО МЕНЕ -->
+  <section id="about-me" class="section-padding reveal about-me-section">
     <div class="container">
-        <div class="team-header-row">
-          <span class="luxury-tag" data-i18n="team_header">// 01 / Засновники</span>
-          <h2 data-i18n="team_title">Дві перспективи — спільна мета</h2>
+      <div class="team-header-row" style="margin-bottom: 50px;">
+      </div>
+      
+      <div class="about-me-grid">
+        <!-- Блок з фотографією -->
+        <div class="about-me-image-container">
+          <div class="about-me-frame-border"></div>
+          <div class="about-me-photo-wrapper">
+            <img src="img/people/olena.webp" alt="Олена Суворова" loading="lazy">
+          </div>
         </div>
         
-        <div class="team-grid team-grid-divider">
-          <div class="team-card">
-              <div class="team-photo-placeholder">
-                <img src="img/people/olena.webp" alt="Олена Суворова" loading="lazy" width="600" height="500"> 
-              </div>
-              <span class="card-role" data-i18n="olena_role">Душа кожного приміщення</span>
-              <h3 data-i18n="olena_name">Олена Суворова</h3>
-              <p class="team-quote" data-i18n="olena_quote">З увагою до деталей. З відчуттям затишку.</p>
-          </div>
+        <!-- Текстовий блок -->
+        <div class="about-me-content">
+          <h2 class="about-me-title" data-i18n="about_me_title">Про мене</h2>
           
-          <div class="team-card">
-              <div class="team-photo-placeholder">
-                <img src="img/people/oleksander.webp" alt="Олександр Кругляк" loading="lazy" width="600" height="500">
-              </div>
-              <span class="card-role" data-i18n="oleksander_role">Технічний геній, що стоїть за ідеями</span>
-              <h3 data-i18n="oleksander_name">Олександр Кругляк</h3>
-              <p class="team-quote" data-i18n="oleksander_quote">Робить можливим те, що здається неможливим.</p>
+          <div class="about-me-quote-box">
+            <p class="about-me-subtitle" data-i18n="about_me_subtitle">»Кожен дім завжди розповідає свою історію«</p>
+          </div>
+
+          <div class="about-me-divider"></div>
+          
+          <div class="about-me-text-body">
+            <p data-i18n="about_me_p1">
+              Я — Олена Суворова, засновниця компанії «Libri Interiors».<br>Моя пристрасть до дизайну інтер’єрів супроводжує мене вже багато років — від України до Німеччини. Я створюю простори, які є чимось більшим, ніж просто красиві інтер’єри: це простори з індивідуальністю, характером і відчуттям, що ти вдома.
+            </p>
+            <p data-i18n="about_me_p2">
+               На мій погляд, гарний дизайн виникає там, де естетика, функціональність та індивідуальність перебувають у гармонії. Адже кожен дім є таким же унікальним, як і люди, які в ньому живуть. 
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- СЕКЦІЯ: ЗАСНОВНИКИ -->
+  <section id="first-section" class="section-padding reveal founders-section">
+    <div class="container">
+
+      <div class="founders-grid">
+        <!-- Картка Олени (Ліворуч) -->
+        <div class="founder-card left-card">
+          <div class="founder-photo-container">
+            <div class="founder-photo-wrapper">
+              <img src="img/people/olena.webp" alt="Olena Suvorova" loading="lazy">
+            </div>
+          </div>
+          <div class="founder-meta">
+            <h3 class="founder-name" data-i18n="olena_name">Олена Суворова</h3>
+            <p class="founder-role" data-i18n="olena_role">Душа кожної кімнати</p>
+            <p class="founder-tagline" data-i18n="olena_quote">З любов’ю до деталей. З почуттям затишку.</p>
           </div>
         </div>
 
-        <div class="team-action">
-          <a href="about.html" class="btn-shelnat">
-              <span style="font-size: 15px; letter-spacing: 3px;" data-i18n="team_action">Більше про нас</span>
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.2"/></svg>
-          </a>
+        <!-- Центральний текстовий блок -->
+        <div class="founders-center-content">
+          <h2 class="founders-title" data-i18n="team_title">
+            ДВІ ПЕРСПЕКТИВИ.<br><span>ОДНА СПІЛЬНА МЕТА</span>
+          </h2>
+          
+          <div class="founders-subtitle-wrapper">
+            <span class="founders-subtitle" data-i18n="founders_subtitle">Поєднання творчості та технічної компетентності</span>
+          </div>
+
+          <div class="founders-description">
+            <p data-i18n="founders_desc1">
+              Кожен дім — унікальний.<br>Тому ми мислимо не стандартами, а рішеннями.<br>Наша мета — втілити Ваше бачення в реальність.
+            </p>
+            <p data-i18n="founders_desc2">
+              Адже для нас хороший дизайн починається там, де краса та практичність йдуть рука об руку.
+            </p>
+          </div>
+
+          <!-- Акцентна цитата з витонченим дизайном -->
+          <div class="founders-quote-card">
+            <p data-i18n="founders_quote">»Коли інші бачать межі, ми бачимо можливості.«</p>
+          </div>
+
+          <p class="founders-footer-text" data-i18n="founders_footer">
+            Разом ми перетворюємо ідеї на місця, де приємно жити.
+          </p>
         </div>
+
+        <!-- Картка Олександра (Праворуч) -->
+        <div class="founder-card right-card">
+          <div class="founder-photo-container">
+            <div class="founder-photo-wrapper">
+              <img src="img/people/oleksander.webp" alt="Oleksandr Krugletskii" loading="lazy">
+            </div>
+          </div>
+          <div class="founder-meta">
+            <h3 class="founder-name" data-i18n="oleksander_name">Олександр Кругляк</h3>
+            <p class="founder-role" data-i18n="oleksander_role">Технічний розум за ідеями</p>
+            <p class="founder-tagline" data-i18n="oleksander_quote">Реалізує те, що здається неможливим.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="portfolio" class="section-padding reveal portfolio-capsule-section">
     <div class="container">
       <div class="section-header-clean">
-        <span class="luxury-tag" data-i18n="portfolio_header">// 02 / ПОРТФОЛІО</span>
         <h2 data-i18n="portfolio_title">Простори, які ми втілили</h2>
       </div>
       <div class="portfolio-capsule-grid">
@@ -193,7 +256,6 @@
   <section id="services" class="section-padding reveal">
     <div class="container">
       <div class="section-header-clean">
-        <span class="luxury-tag" data-i18n="services_header">// 03 / Послуги</span>
         <h2 data-i18n="services_title">Що ми пропонуємо</h2>
       </div>
       <div class="shelnat-table">
@@ -242,7 +304,6 @@
   <section id="faq" class="section-padding reveal">
     <div class="container" style="position: relative; z-index: 2;">
       <div class="section-header-clean">
-        <span class="luxury-tag">// 04 / FAQ</span>
         <h2 data-i18n="faq_title">Часті запитання</h2>
       </div>
       <div class="faq-accordion">
@@ -331,7 +392,8 @@
           <div class="footer-nav-col">
             <span class="f-column-label" data-i18n="footer_navigation">// Навігація</span>
             <ul class="f-nav-list">
-              <li><a href="#first-section" class="f-nav-link" data-i18n="team">Засновники</a></li>
+              <li><a href="#about-me" class="f-nav-link" data-i18n="team">Про мене</a></li>
+              <li><a href="#first-section" class="f-nav-link" data-i18n="team">Партнер</a></li>
               <li><a href="#portfolio" class="f-nav-link" data-i18n="portfolio2">Портфоліо</a></li>
               <li><a href="#services" class="f-nav-link" data-i18n="services2">Послуги</a></li>
               <li><a href="#faq" class="f-nav-link" data-i18n="faq">Часті запитання</a></li>

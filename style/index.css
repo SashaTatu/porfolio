@@ -49,9 +49,17 @@ a { text-decoration: none; color: inherit; }
 
 .section-padding {
   padding: 150px 0;
-  border-bottom: 1px solid rgba(201, 194, 189, 0.35);
+  border-bottom: none;
   position: relative;
-  z-index: 1;
+}
+
+/* Тонкий "видих" замість жорсткої лінії — лише де потрібно акцентувати межу */
+.section-padding::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,194,189,0.35), transparent);
 }
 
 .luxury-tag {
@@ -634,6 +642,7 @@ a { text-decoration: none; color: inherit; }
 .about-me-section {
   position: relative;
   background-color: transparent;
+  background-color: #F8F5F0;
 }
 
 .about-me-grid {
@@ -773,12 +782,131 @@ a { text-decoration: none; color: inherit; }
   }
 }
 
+
+/* ==========================================================================
+   --- СТИЛІ ДЛЯ СЕКЦІЇ-ПЕРЕХОДУ З ЧЕРГУВАННЯМ ФОНУ (#F6F2EC) ---
+   ========================================================================== */
+
+.section-separation {
+  position: relative;
+  padding: 80px 0; 
+  background-color: #666956; /* Новий темний зелений фон */
+  z-index: 2;
+  transition: background-color 0.4s ease;
+}
+
+.section-separation::after {
+  display: none;
+}
+
+.separation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+/* Ювелірний роздільник: тонка лінія з центральною акцентною зіркою */
+.sep-divider-line {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.3) 20%, 
+    rgba(255, 255, 255, 0.8) 50%, 
+    rgba(255, 255, 255, 0.3) 80%, 
+    transparent 100%
+  );
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sep-diamond-star {
+  font-size: 12px;
+  color: #E5E2DC;
+  background-color: #666956; /* Збігається з новим фоном */
+  padding: 0 14px;
+  line-height: 1;
+  display: inline-block;
+  transform: scale(0.9);
+  transition: transform 0.5s ease, color 0.5s ease;
+}
+
+.section-separation:hover .sep-diamond-star {
+  transform: scale(1.25) rotate(90deg);
+  color: #FFFFFF;
+}
+
+.separation-content {
+  max-width: 850px;
+  padding: 0 20px;
+}
+
+.sep-quote-blockquote {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sep-quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 3.5vw, 38px);
+  line-height: 1.4;
+  font-weight: 300;
+  color: #F9F6F4; /* Світлий колір для високого контрасту */
+  letter-spacing: 0.02em;
+}
+
+.sep-accent-limits {
+  font-weight: 300;
+  color: #D6D2CB;
+  opacity: 0.9;
+}
+
+.sep-accent-opportunities {
+  font-style: italic;
+  font-weight: 400;
+  color: #FFFFFF;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.section-separation:hover .sep-accent-opportunities {
+  color: #E5E2DC;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+/* --- АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ --- */
+
+@media (max-width: 768px) {
+  .section-separation {
+    padding: 40px 0 30px;
+  }
+
+  .sep-divider-line {
+    max-width: 200px;
+    margin-bottom: 20px;
+  }
+
+  .sep-quote-text {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+}
+
 /* --- СЕКЦІЯ ЗАСНОВНИКИ (LUXURY ARCHITECTURAL DESIGN) --- */
 .founders-section {
   position: relative;
   background-color: transparent;
   padding-top: 60px;
   padding-bottom: 90px;
+  background-color: #F8F5F0;
 }
 
 .founders-header-wrapper {
@@ -878,6 +1006,7 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
   text-align: center;
   padding-top: 10px;
+  margin-bottom: 200px;
 }
 
 .founders-title {
@@ -964,13 +1093,15 @@ a { text-decoration: none; color: inherit; }
 }
 
 .founders-footer-text {
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 300;
   color: #666956;
   max-width: 360px;
   line-height: 1.6;
   margin-bottom: 30px;
   letter-spacing: 0.01em;
+  font-style: italic;
+
 }
 
 .founders-action .btn-shelnat {
@@ -1007,7 +1138,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* --- ПОРТФОЛІО ТИЗЕР --- */
-.portfolio-capsule-section { padding-top: 120px; padding-bottom: 120px; overflow: hidden; }
+.portfolio-capsule-section { padding-top: 120px; padding-bottom: 120px; overflow: hidden; background-color: #F6F2EC;}
 .portfolio-capsule-section h2 { margin-bottom: 80px; text-align: left; font-size: clamp(34px, 4.5vw, 50px); }
 .portfolio-capsule-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 60px 80px; align-items: start; }
 .portfolio-capsule-item { display: flex; flex-direction: column; position: relative; }
@@ -1030,10 +1161,11 @@ a { text-decoration: none; color: inherit; }
 .portfolio-capsule-item:hover .capsule-image-wrapper img { transform: scale(1.05); }
 
 /* --- ТАБЛИЦЯ ПОСЛУГ --- */
+#services{ background-color: #F8F5F0; }
 .shelnat-table { border-top: 1px solid #C9C2BD; }
 .table-row { 
   display: flex; padding: 45px 0; border-bottom: 1px solid rgba(201, 194, 189, 0.4); position: relative;
-  transition: padding-left 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-bottom-color 0.5s ease; cursor: pointer;
+  transition: padding-left 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-bottom-color 0.5s ease; cursor: pointer; 
 }
 .table-row:hover { padding-left: 20px; border-bottom-color: #666956; }
 .table-row::before { content: ''; position: absolute; left: 0; bottom: -1px; width: 0; height: 1px; background-color: #666956; transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
@@ -1046,7 +1178,7 @@ a { text-decoration: none; color: inherit; }
 
 /* --- СЕКЦІЯ CTA --- */
 .cta-fluid-section { padding: 60px 0; background-color: #F9F6F4; width: 100%; overflow: hidden; }
-.cta-fluid-shape { position: relative; width: 100%; min-height: 480px; display: flex; align-items: center; justify-content: center; overflow: hidden; clip-path: ellipse(85% 100% at 50% 50%); }
+.cta-fluid-shape { position: static; width: 100%; min-height: 450px; display: flex; align-items: center; justify-content: center; overflow: hidden; clip-path: ellipse(85% 100% at 50% 50%); }
 .cta-story-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('../img/background/call-back.webp'); background-size: cover; background-position: center 40%; z-index: 0; filter: grayscale(20%) brightness(0.65) contrast(1.05); transform: scale(1.01); transition: transform 2.5s cubic-bezier(0.25, 1, 0.5, 1), filter 2.5s ease; will-change: transform, filter; }
 .cta-fluid-shape:hover .cta-story-bg { transform: scale(1.05); filter: grayscale(5%) brightness(0.58) contrast(1.05); }
 .cta-story-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(22, 20, 19, 0.8) 0%, rgba(102, 105, 86, 0.5) 100%); z-index: 1; }
@@ -1065,7 +1197,7 @@ a { text-decoration: none; color: inherit; }
 .btn-cta-order:hover::before { transform: scaleY(1); }
 
 /* --- FAQ АКОРДЕОН --- */
-.faq-accordion { max-width: 900px; margin-left: auto; }
+.faq-accordion { max-width: 900px; margin-left: auto;  }
 .faq-item { border-bottom: 1px solid rgba(201, 194, 189, 0.4); transition: border-bottom-color 0.4s ease; }
 .faq-item.active { border-bottom-color: #666956; }
 .faq-trigger { padding: 30px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
@@ -1262,4 +1394,33 @@ a { text-decoration: none; color: inherit; }
     border-top: 1px solid rgba(201, 194, 189, 0.2); /* Візуальна лінія над копірайтом */
     width: 100%;
   }
+}
+
+
+
+
+.founders-section {
+  margin-top: -80px; /* заходить під about-me */
+  padding-top: 140px;
+}
+
+.portfolio-capsule-section {
+  margin-top: -60px;
+}
+
+.connector-thread {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(102,105,86,0.25) 20%,
+    rgba(102,105,86,0.25) 80%,
+    transparent
+  );
+  z-index: 0;
+  pointer-events: none;
 }
